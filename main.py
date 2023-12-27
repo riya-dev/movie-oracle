@@ -42,7 +42,7 @@ def get_keyword_ids(api_key, keywords):
 
     return '|'.join(keyword_ids)
 
-def discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres, keywords):
+def discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres):
     # https://developer.themoviedb.org/reference/discover-movie
     url = "https://api.themoviedb.org/3/discover/movie"
     
@@ -56,7 +56,7 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
         "with_runtime.gte": runtime_gte,
         "with_runtime.lte": runtime_lte,
         "with_genres": genres,
-        "with_keywords": keywords,
+        # "with_keywords": keywords,
     }
     
     response = requests.get(url, params=params)
@@ -94,19 +94,19 @@ response = requests.get(url, headers=headers)
 # print("with_genres Parameter:", "|".join(genre_ids))
 
 include_adult = False
-primary_release_date_gte = "2021-01-01"
-primary_release_date_lte = "2021-12-31"
+primary_release_date_gte = "2023-01-01"
+primary_release_date_lte = "2023-12-31"
 vote_average_gte = 7.0
-runtime_gte = 60
-runtime_lte = 150
+runtime_gte = 30
+runtime_lte = 120
 
-genre_strings = [] #"Romance", "Comedy"
+genre_strings = ["Romance"] #"Romance", "Comedy"
 genre_ids = get_genre_ids(api_key, genre_strings)
 genres = "|".join(genre_ids)
 
-keyword_words = ""
-keywords = get_keyword_ids(api_key, keyword_words)
-# print(keywords)
+# keyword_words = ""
+# keywords = get_keyword_ids(api_key, keyword_words)
+# # print(keywords)
 
-movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres, keywords)
+movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
 print("\n", movies)
