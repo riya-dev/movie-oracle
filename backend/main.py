@@ -4,11 +4,17 @@ from requests import post, get
 import os
 import base64
 import json
+from flask import Flask, jsonify
+from flask_cors import CORS
 
 load_dotenv()
 
 access_token = os.getenv("ACCESS_TOKEN")
-api_key = os.getenv("API_KEY") 
+api_key = os.getenv("API_KEY")
+
+#app instance
+app = Flask(__name__)
+CORS(app)
 
 def get_genre_ids(api_key, genre_names):
     url = f"https://api.themoviedb.org/3/genre/movie/list"
@@ -77,35 +83,42 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
     else:
         print(f"Error: {response.status_code}")
         return None
-
-### authentication ###
-
-url = "https://api.themoviedb.org/3/authentication"
-headers = {
-    "accept": "application/json",
-    "Authorization": f"Bearer {access_token}"
-}
-response = requests.get(url, headers=headers)
-# print(response.text)
     
-### Discover Movies ###
 
-include_adult = False
-primary_release_date_gte = "2023-01-01"
-primary_release_date_lte = "2023-12-31"
-vote_average_gte = 7.0
-runtime_gte = 30
-runtime_lte = 120
+@app.route("/api/home", methods=['GET'])
+def return_home():
+    ### authentication ###
 
-genre_strings = ["Comedy"] #"Romance", "Comedy"
-genre_ids = get_genre_ids(api_key, genre_strings)
-genres = "|".join(genre_ids)
+    url = "https://api.themoviedb.org/3/authentication"
+    headers = {
+        "accept": "application/json",
+        "Authorization": f"Bearer {access_token}"
+    }
+    response = requests.get(url, headers=headers)
+    # print(response.text)
+        
+    ### Discover Movies ###
 
-# keyword_words = ""
-# keywords = get_keyword_ids(api_key, keyword_words)
-# # print(keywords)
+    include_adult = False
+    primary_release_date_gte = "2023-01-01"
+    primary_release_date_lte = "2023-12-31"
+    vote_average_gte = 7.0
+    runtime_gte = 30
+    runtime_lte = 120
 
-# fetch streaming platforms or query by streaming platform
+    genre_strings = ["Romance"] #"Romance", "Comedy"
+    genre_ids = get_genre_ids(api_key, genre_strings)
+    genres = "|".join(genre_ids)
 
-movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
-print("\n", movies)
+    # keyword_words = ""
+    # keywords = get_keyword_ids(api_key, keyword_words)
+    # # print(keywords)
+
+    # fetch streaming platforms or query by streaming platform
+
+    movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
+    # print("\n", movies)
+    return jsonify(movies)
+
+if __name__ == "__main__":
+    app.run(debug=True, port=8080)

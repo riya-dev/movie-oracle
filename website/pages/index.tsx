@@ -27,7 +27,7 @@ function index() {
       // once data is retrived, message is set to data.message
       // setMessage(data.message);
       // console.log(people);
-      setMovieResults(data.movie_results);
+      setMovieResults(data);
     });
   }, [])
 
