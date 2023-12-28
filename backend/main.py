@@ -106,7 +106,7 @@ def return_home():
     runtime_gte = 30
     runtime_lte = 120
 
-    genre_strings = ["Romance"] #"Romance", "Comedy"
+    genre_strings = ["Action"] #"Romance", "Comedy"
     genre_ids = get_genre_ids(api_key, genre_strings)
     genres = "|".join(genre_ids)
 

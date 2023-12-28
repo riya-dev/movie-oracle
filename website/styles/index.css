@@ -1,4 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
-  background-color: white;
-  color: #3498db;
+  background-color: #e6f3ff;
+  color: #0066cc;
+  font-family: Montserrat;
+}
+
+.card {
+  margin: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 20px;
+  border: 2px solid #0066cc;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card.hover {
+  transform: scale(1.05);
+}
+
+.adult-button {
+  border-radius: 5px;
+}
+
+h1 {
+  color: #0066cc;
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: #0066cc;
 }/*# sourceMappingURL=index.css.map */

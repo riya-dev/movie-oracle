@@ -9,8 +9,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useEffect, useState } from "react";
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import { Montserrat } from 'next/font/google'
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 function index() {
 
@@ -32,15 +32,14 @@ function index() {
   }, [])
 
   return (
-    <div>
+    <div style={{ paddingTop: '75px' }}>
       {movieResults.map((movieResult, index) => (
-        <div key={index}>
-          <strong>Title:</strong> {movieResult.original_title} <br />
+        <div className="card" key={index}>
+          <h1>{movieResult.original_title}</h1>
           <strong>Language:</strong> {movieResult.original_language} <br />
           <strong>Overview:</strong> {movieResult.overview} <br />
           <strong>Release Date:</strong> {movieResult.release_date} <br />
           <strong>Adult:</strong> {movieResult.adult ? 'Yes' : 'No'} <br />
-          <hr />
         </div>
       ))}
     </div>
