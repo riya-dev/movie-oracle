@@ -91,7 +91,7 @@ response = requests.get(url, headers=headers)
 ### Discover Movies ###
 
 include_adult = False
-primary_release_date_gte = "2021-01-01"
+primary_release_date_gte = "2023-01-01"
 primary_release_date_lte = "2023-12-31"
 vote_average_gte = 7.0
 runtime_gte = 30
