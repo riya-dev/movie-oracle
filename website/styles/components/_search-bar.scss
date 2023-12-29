@@ -1,0 +1,28 @@
+@use 'sass:math';
+
+$search-bar-background: #fff; // Adjust as needed
+$search-bar-border: 1px solid #ccc; // Adjust as needed
+$search-bar-placeholder-color: #999; // Adjust as needed
+$search-bar-focus-border: 2px solid #007bff; // Adjust as needed
+
+.search-bar {
+  width: 100%;
+  max-width: 300px; // Adjust the max-width as needed
+  margin: $base-margin;
+  padding: $base-padding;
+  border: $search-bar-border;
+  border-radius: math.div($base-border-radius, 4);
+  box-sizing: border-box;
+  font-size: $font-size-md;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $search-bar-background;
+
+    &::placeholder {
+    color: $search-bar-placeholder-color;
+    }
+
+    &:focus {
+    outline: none;
+    border: $search-bar-focus-border;
+    }
+}

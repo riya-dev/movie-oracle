@@ -100,13 +100,13 @@ def return_home():
     ### Discover Movies ###
 
     include_adult = False
-    primary_release_date_gte = "2023-01-01"
-    primary_release_date_lte = "2023-12-31"
+    primary_release_date_gte = "2020-01-01"
+    primary_release_date_lte = "2020-12-31"
     vote_average_gte = 7.0
     runtime_gte = 30
     runtime_lte = 120
 
-    genre_strings = ["Action"] #"Romance", "Comedy"
+    genre_strings = ["Romance", "Comedy"] #"Romance", "Comedy"
     genre_ids = get_genre_ids(api_key, genre_strings)
     genres = "|".join(genre_ids)
 

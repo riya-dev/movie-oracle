@@ -2,6 +2,7 @@
 $background-color: #e6f3ff;
 $primary: #003566; // darker
 $secondary: #0066cc; // lighter
+$tertiary: #99ccff;
 
 $dark-background-color: black;
 $dark-primary: #cce6ff;
@@ -28,11 +29,12 @@ $base-border-thickness: 2px;
 $base-border-radius: 20px;
 
 // box shadow
-$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
 
 // font sizes
 $base-font-size: 1rem;
 $font-size-sm: $base-font-size * 0.75;
+$font-size-md: $base-font-size * 1.15;
 $font-size-lg: $base-font-size * 1.5;
 $font-size-xl: $base-font-size * 2;
 $font-size-xxl: $base-font-size * 3;

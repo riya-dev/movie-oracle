@@ -1,24 +1,29 @@
+@use 'sass:math';
+
 @mixin btn($bg-color: white) {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
     border: 0;
     padding: $base-padding $base-padding * 2;
-    border-radius: $base-border-radius;
+    margin: $base-margin;
+    border-radius: math.div($base-border-radius, 4);
     background-color: $bg-color;
+    font-family: 'Montserrat', sans-serif;
+    font-size: $font-size-md;
 }
 
 .btn {
-    @include btn($secondary);
+    @include btn($tertiary);
     &:hover {
-        background-color: lighten($secondary, 5);
+        background-color: lighten($tertiary, 5);
     }
 
     .btn-outlined {
         @include btn(white);
-        border: $base-border-thickness solid $secondary;
+        border: $base-border-thickness solid $tertiary;
         &:hover {
-            background-color: $secondary;
+            background-color: $tertiary;
         }
     }
 }
