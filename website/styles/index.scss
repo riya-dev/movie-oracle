@@ -1,48 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// variables and functions
+@import 'variables';
 
-// theme colors
-$background-color: #e6f3ff;
-$primary: #0066cc;
-$secondary: #0066cc;
-$dark-background-color: black;
-$dark-primary: #cce6ff;
-$dark-secondary: #4da6ff;
+// base & layout
+@import 'base';
 
-// spacing
-$base-padding: 0.75rem;
-$base-margin: 0.75rem;
+// colors
 
-// borders
-$base-border-thickness: 2px;
-$base-border-radius: 20px;
+// components (button, card, navbar)
+@import 'components/card';
+@import 'components/button';
+@import 'components/navbar';
 
-body{
-    background-color: $background-color;
-    color: $primary;
-    font-family: Montserrat;
-}
-
-.card{
-    margin: $base-margin;
-    padding: $base-padding;
-    border-radius: $base-border-radius;
-    border: $base-border-thickness solid $secondary;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-.card.hover{
-    transform: scale(1.05);
-}
-
-.adult-button{
-    border-radius: 5px;
-}
-
-h1{
-    color: $primary;
-    margin-bottom: $base-margin;
-}
-
-a{
-    color: $secondary;
-}
+// utilities (margin, padding, opacity)

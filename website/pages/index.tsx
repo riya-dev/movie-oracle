@@ -32,10 +32,11 @@ function index() {
   }, [])
 
   return (
-    <div style={{ paddingTop: '75px' }}>
+    <div>
+      <h1>Recommended movies based on your search</h1>
       {movieResults.map((movieResult, index) => (
         <div className="card" key={index}>
-          <h1>{movieResult.original_title}</h1>
+          <h1 className="card-title">{movieResult.original_title}</h1>
           <strong>Language:</strong> {movieResult.original_language} <br />
           <strong>Overview:</strong> {movieResult.overview} <br />
           <strong>Release Date:</strong> {movieResult.release_date} <br />

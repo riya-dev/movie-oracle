@@ -1,32 +1,87 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   background-color: #e6f3ff;
-  color: #0066cc;
+  color: #003566;
   font-family: Montserrat;
 }
 
+h1 {
+  color: #003566;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 6rem;
+  align-self: center;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
 .card {
-  margin: 0.75rem;
+  display: block;
   padding: 0.75rem;
-  border-radius: 20px;
   border: 2px solid #0066cc;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 0.75rem;
   text-align: center;
   transition: transform 0.3s ease-in-out;
+}
+.card .card-title {
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  font-weight: bold;
+  margin-top: 0rem;
+}
+.card .card-body {
+  font-size: 1rem;
+}
+.card .card-body a {
+  text-decoration: underline;
 }
 
 .card.hover {
   transform: scale(1.05);
 }
 
-.adult-button {
-  border-radius: 5px;
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  background-color: #0066cc;
+}
+.btn:hover {
+  background-color: #0073e6;
+}
+.btn .btn-outlined {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  background-color: white;
+  border: 2px solid #0066cc;
+}
+.btn .btn-outlined:hover {
+  background-color: #0066cc;
 }
 
-h1 {
-  color: #0066cc;
-  margin-bottom: 0.75rem;
-}
-
-a {
-  color: #0066cc;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5vw;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #004d99;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: auto;
 }/*# sourceMappingURL=index.css.map */
