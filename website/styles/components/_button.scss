@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@mixin btn($bg-color: white) {
+@mixin btn($bg-color: $tertiary) {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
@@ -15,6 +15,22 @@
 
 .btn {
     @include btn($tertiary);
+    &:hover {
+        background-color: lighten($tertiary, 5);
+    }
+
+    .btn-outlined {
+        @include btn(white);
+        border: $base-border-thickness solid $tertiary;
+        &:hover {
+            background-color: $tertiary;
+        }
+    }
+}
+
+.btn-adult{
+    @include btn;
+    width: 250px;
     &:hover {
         background-color: lighten($tertiary, 5);
     }

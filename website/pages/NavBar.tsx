@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const NavBar = () => {
   const [showAdultContent, setShowAdultContent] = useState(false);
   const [genreSearch, setGenreSearch] = useState('');
+  const [sliderValue, setSliderValue] = useState(50);
 
   const handleToggleAdultContent = () => {
     setShowAdultContent(!showAdultContent);
@@ -12,6 +13,10 @@ const NavBar = () => {
     setGenreSearch(e.target.value);
   };
 
+  const handleSliderChange = (e) => {
+    setSliderValue(e.target.value);
+  };
+
   const handleSearch = () => {
     console.log('Searching for genre:', genreSearch);
   };
@@ -19,7 +24,7 @@ const NavBar = () => {
   return (
     <>
       <div className="navbar">
-        <button className="btn" onClick={handleToggleAdultContent}>
+        <button className="btn-adult" onClick={handleToggleAdultContent}>
           {showAdultContent ? 'No Adult Content' : 'Show Adult Content'}
         </button>
         <input
@@ -29,6 +34,19 @@ const NavBar = () => {
           value={genreSearch}
           onChange={handleGenreSearchChange}
         />
+
+        <h2>Minimum rating: </h2>
+        <div className='slider'>
+          <input
+            type="range"
+            min="0"
+            max="10"
+            step="0.5"
+            value={sliderValue}
+            onChange={handleSliderChange}
+          />
+          <label htmlFor="slider">{sliderValue}</label>
+        </div>
         <button className="btn" onClick={handleSearch}>
           Search
         </button>

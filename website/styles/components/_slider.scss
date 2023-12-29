@@ -1,0 +1,41 @@
+@use 'sass:math';
+
+$slider-background: #fff; // Adjust as needed
+$slider-border: 2px solid white; // Adjust as needed
+$slider-label-color: white; // Adjust as needed
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input[type="range"] {
+    width: 100%;
+    max-width: 300px;
+    // margin: $base-margin;
+    // padding: $base-padding;
+    border: $slider-border;
+    border-radius: math.div($base-border-radius, 1);
+    box-sizing: border-box;
+    background-color: $slider-background;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      background-color: #007bff;
+      border-radius: 50%;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    color: $slider-label-color;
+    font-size: $font-size-sm;
+    // margin-top: $base-margin;
+  }
+}

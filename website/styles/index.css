@@ -13,6 +13,12 @@ h1 {
   align-self: center;
 }
 
+h2 {
+  color: white;
+  font-size: 1.15rem;
+  align-self: center;
+}
+
 a {
   color: #0066cc;
   text-decoration: none;
@@ -77,6 +83,39 @@ a {
   background-color: #99ccff;
 }
 
+.btn-adult {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  margin: 0.75rem;
+  border-radius: 5px;
+  background-color: #99ccff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.15rem;
+  width: 250px;
+}
+.btn-adult:hover {
+  background-color: #b3d9ff;
+}
+.btn-adult .btn-outlined {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  margin: 0.75rem;
+  border-radius: 5px;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.15rem;
+  border: 2px solid #99ccff;
+}
+.btn-adult .btn-outlined:hover {
+  background-color: #99ccff;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -113,4 +152,34 @@ a {
 .search-bar:focus {
   outline: none;
   border: 2px solid #007bff;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.slider input[type=range] {
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  cursor: pointer;
+}
+.slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: #007bff;
+  border-radius: 50%;
+}
+.slider input[type=range]:focus {
+  outline: none;
+}
+.slider label {
+  color: white;
+  font-size: 0.75rem;
 }/*# sourceMappingURL=index.css.map */
