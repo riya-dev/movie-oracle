@@ -4,7 +4,7 @@ from requests import post, get
 import os
 import base64
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 load_dotenv()
@@ -106,7 +106,7 @@ def return_home():
     runtime_gte = 30
     runtime_lte = 120
 
-    genre_strings = ["Romance", "Comedy"] #"Romance", "Comedy"
+    genre_strings = ["Comedy"] #"Romance", "Comedy"
     genre_ids = get_genre_ids(api_key, genre_strings)
     genres = "|".join(genre_ids)
 

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 
 const NavBar = () => {
+  const [navbarHeight, setNavbarHeight] = useState('100vh');
+
   const [showAdultContent, setShowAdultContent] = useState(false);
   const [genreSearch, setGenreSearch] = useState('');
-  const [sliderValue, setSliderValue] = useState(50);
+  const [sliderValue, setSliderValue] = useState(7);
 
   const handleToggleAdultContent = () => {
     setShowAdultContent(!showAdultContent);
@@ -17,39 +19,56 @@ const NavBar = () => {
     setSliderValue(e.target.value);
   };
 
-  const handleSearch = () => {
-    console.log('Searching for genre:', genreSearch);
+  const handleSearch = (e) => {
+    e.preventDefault(); // prevent default form submission behavior
+    setNavbarHeight('10vh');
+    console.log('Form Submitted. Values:', { showAdultContent, genreSearch, sliderValue });
   };
 
   return (
     <>
-      <div className="navbar">
-        <button className="btn-adult" onClick={handleToggleAdultContent}>
-          {showAdultContent ? 'No Adult Content' : 'Show Adult Content'}
-        </button>
-        <input
-          type="text"
-          placeholder="Search by genre"
-          className='search-bar'
-          value={genreSearch}
-          onChange={handleGenreSearchChange}
-        />
+      <div className="navbar" style={{ height: navbarHeight }}>
+        <form onSubmit={handleSearch} className="form-container">
+          <div className="form-item">
+            <button type="button" className="btn-adult" onClick={handleToggleAdultContent}>
+              {showAdultContent ? 'No Adult Content' : 'Show Adult Content'}
+            </button>
+          </div>
 
-        <h2>Minimum rating: </h2>
-        <div className='slider'>
-          <input
-            type="range"
-            min="0"
-            max="10"
-            step="0.5"
-            value={sliderValue}
-            onChange={handleSliderChange}
-          />
-          <label htmlFor="slider">{sliderValue}</label>
-        </div>
-        <button className="btn" onClick={handleSearch}>
-          Search
-        </button>
+          <div className="form-item">
+            <input
+              type="text"
+              placeholder="Search by genre"
+              className='search-bar'
+              value={genreSearch}
+              name="genre"
+              onChange={handleGenreSearchChange}
+            />
+          </div>
+
+          <h2>Minimum rating:</h2>
+          <div className="form-item">
+            <div className='slider'>
+              <label htmlFor="minRating">{sliderValue}</label>
+              <input
+                type="range"
+                min="0"
+                max="10"
+                step="0.5"
+                value={sliderValue}
+                name="minRating"
+                id="minRating"
+                onChange={handleSliderChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-item">
+            <button type="submit" className="btn">
+              Search
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

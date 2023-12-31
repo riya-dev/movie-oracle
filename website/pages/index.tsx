@@ -33,7 +33,7 @@ function index() {
 
   return (
     <div>
-      <h1>Recommended movies based on your search</h1>
+      <h1>Movies for you</h1>
       {movieResults.map((movieResult, index) => (
         <div className="card" key={index}>
           <h1 className="card-title">{movieResult.original_title}</h1>

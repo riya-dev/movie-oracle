@@ -6,6 +6,7 @@
     border: $base-border-thickness solid $secondary;
     box-shadow: $base-box-shadow;
     border-radius: math.div($base-border-radius, 4);
+    background-color: white;
 
     margin: $base-margin;
     text-align: center;

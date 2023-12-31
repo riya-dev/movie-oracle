@@ -1,8 +1,8 @@
 @use 'sass:math';
 
-$slider-background: #fff; // Adjust as needed
-$slider-border: 2px solid white; // Adjust as needed
-$slider-label-color: white; // Adjust as needed
+$slider-background: #007bff;
+$slider-border: 2px solid white;
+$slider-label-color: white;
 
 .slider {
   display: flex;
@@ -24,7 +24,7 @@ $slider-label-color: white; // Adjust as needed
       appearance: none;
       width: 30px;
       height: 30px;
-      background-color: #007bff;
+      background-color: #007bff; // thumb color
       border-radius: 50%;
     }
 
@@ -35,7 +35,8 @@ $slider-label-color: white; // Adjust as needed
 
   label {
     color: $slider-label-color;
-    font-size: $font-size-sm;
+    font-size: $font-size-md;
+    font-weight: bold;
     // margin-top: $base-margin;
   }
 }
