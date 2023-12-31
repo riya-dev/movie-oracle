@@ -48,7 +48,7 @@ def get_keyword_ids(api_key, keywords):
 
     return '|'.join(keyword_ids)
 
-def discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres):
+def discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_lte, genres):
     # https://developer.themoviedb.org/reference/discover-movie
     url = "https://api.themoviedb.org/3/discover/movie"
     
@@ -59,7 +59,7 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
         "primary_release_date.gte": primary_release_date_gte,
         "primary_release_date.lte": primary_release_date_lte,
         "vote_average.gte": vote_average_gte,
-        "with_runtime.gte": runtime_gte,
+        # "with_runtime.gte": runtime_gte,
         "with_runtime.lte": runtime_lte,
         "with_genres": genres,
         # "with_keywords": keywords,
@@ -106,8 +106,8 @@ def return_home():
         primary_release_date_gte = "2020-01-01"
         primary_release_date_lte = "2020-12-31"
         vote_average_gte = data.get('vote_average_gte', 7.0)
-        runtime_gte = 30
-        runtime_lte = 120
+        # runtime_gte = 30
+        runtime_lte = data.get('runtime_lte', 180)
 
         genre_strings = data.get('genre_strings', [])
         genre_ids = get_genre_ids(api_key, genre_strings)
@@ -115,7 +115,7 @@ def return_home():
 
         # fetch streaming platforms or query by streaming platform
 
-        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
+        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_lte, genres)
         # print("\n", movies)
         return jsonify(movies)
         
@@ -125,12 +125,12 @@ def return_home():
         genre_strings = []
         primary_release_date_gte = "2023-01-01"
         primary_release_date_lte = "2023-12-31"
-        runtime_gte = 30
+        # runtime_gte = 30
         runtime_lte = 120
         genre_ids = get_genre_ids(api_key, genre_strings)
         genres = "|".join(genre_ids)
 
-        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
+        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_lte, genres)
         
         return jsonify(movies)
 

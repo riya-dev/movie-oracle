@@ -3,13 +3,15 @@ body {
   background-color: #e6f3ff;
   color: #003566;
   font-family: Montserrat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-  color: #003566;
-  font-size: 1.5rem;
+  color: white;
+  font-size: 3rem;
   margin-bottom: 0.75rem;
-  margin-top: 6rem;
   align-self: center;
 }
 
@@ -17,6 +19,7 @@ h2 {
   color: white;
   font-size: 1.15rem;
   align-self: center;
+  width: 100%;
 }
 
 a {
@@ -40,6 +43,7 @@ a {
   padding-bottom: 0.75rem;
   font-weight: bold;
   margin-top: 0rem;
+  color: #003566;
 }
 .card .card-body {
   font-size: 1rem;
@@ -57,31 +61,35 @@ a {
   cursor: pointer;
   display: inline-block;
   border: 0;
-  padding: 0.75rem 1.5rem;
-  margin: 0.75rem;
+  padding: 0.75rem;
   border-radius: 5px;
   background-color: #99ccff;
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .btn:hover {
   background-color: #b3d9ff;
+  transform: scale(1.1);
 }
 .btn .btn-outlined {
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
   border: 0;
-  padding: 0.75rem 1.5rem;
-  margin: 0.75rem;
+  padding: 0.75rem;
   border-radius: 5px;
   background-color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   border: 2px solid #99ccff;
 }
 .btn .btn-outlined:hover {
   background-color: #99ccff;
+  transform: scale(1.1);
 }
 
 .btn-adult {
@@ -89,32 +97,37 @@ a {
   cursor: pointer;
   display: inline-block;
   border: 0;
-  padding: 0.75rem 1.5rem;
-  margin: 0.75rem;
+  padding: 0.75rem;
   border-radius: 5px;
   background-color: #99ccff;
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
-  width: 250px;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 175px;
+  font-weight: normal;
 }
 .btn-adult:hover {
   background-color: #b3d9ff;
+  transform: scale(1.1);
 }
 .btn-adult .btn-outlined {
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
   border: 0;
-  padding: 0.75rem 1.5rem;
-  margin: 0.75rem;
+  padding: 0.75rem;
   border-radius: 5px;
   background-color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   border: 2px solid #99ccff;
 }
 .btn-adult .btn-outlined:hover {
   background-color: #99ccff;
+  transform: scale(1.1);
 }
 
 .navbar {
@@ -124,17 +137,19 @@ a {
   width: 100vw;
   margin: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   background-color: #004d99;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: height 0.5s ease;
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
 .search-bar {
   width: 100%;
-  max-width: 300px;
-  margin: 0.75rem;
+  max-width: 400px;
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -142,6 +157,7 @@ a {
   font-size: 1.15rem;
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .search-bar::-moz-placeholder {
   color: #999;
@@ -152,17 +168,26 @@ a {
 .search-bar:focus {
   outline: none;
   border: 2px solid #007bff;
+  transform: scale(1.1);
+}
+.search-bar:hover {
+  transform: scale(1.1);
 }
 
 .slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  outline: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.7;
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s;
 }
 .slider input[type=range] {
-  width: 100%;
+  width: 300px;
   max-width: 300px;
-  border: 2px solid white;
   border-radius: 20px;
   box-sizing: border-box;
   background-color: #007bff;
@@ -170,30 +195,54 @@ a {
 }
 .slider input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   width: 30px;
   height: 30px;
-  background-color: #007bff;
-  border-radius: 50%;
+  background: white;
+  border-radius: 20px;
+}
+.slider input[type=range]::-webkit-slider-thumb:focus {
+  outline: none;
+  transform: scale(1.1);
 }
 .slider input[type=range]:focus {
   outline: none;
+  opacity: 1;
+}
+.slider input[type=range]:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 .slider label {
   color: white;
   font-size: 1.15rem;
-  font-weight: bold;
+  opacity: 100%;
+}
+.slider label:focus {
+  color: black;
 }
 
 .form-container {
   display: flex;
-  flex-wrap: wrap; /* Wrap items if they don't fit in one line */
-  gap: 10px; /* Adds space between form items */
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto;
+  align-items: center;
+  align-content: center;
 }
 
 .form-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 1rem;
+  align-self: center;
+}
+.form-item:h2 {
+  align-self: center;
+}
+
+.h2-alt {
+  color: #003566;
+  margin-top: 6rem;
+  font-size: 2rem;
+  width: auto 100%;
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */

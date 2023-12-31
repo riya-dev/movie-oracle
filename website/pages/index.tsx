@@ -3,16 +3,16 @@ import NavBar from '../components/NavBar';
 import Index from './page';
 
 function index() {
-  const [movies, setMovies] = useState([]); // state to store fetched movies
+  const [movies, setMovies] = useState([]);
 
   const handleMoviesFetched = (fetchedMovies) => {
-    setMovies(fetchedMovies); // update state when movies are fetched
+    setMovies(fetchedMovies);
   };
 
   return (
     <>
       <NavBar onMoviesFetched={handleMoviesFetched} />
-      <Index movieResults={movies} /> // pass the movies state as a prop to Index
+      <Index movieResults={movies} />
     </>
   );
 }

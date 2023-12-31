@@ -4,7 +4,8 @@ const NavBar = ({ onMoviesFetched }) => {
   const [navbarHeight, setNavbarHeight] = useState('100vh');
   const [showAdultContent, setShowAdultContent] = useState(false);
   const [genreSearch, setGenreSearch] = useState('');
-  const [sliderValue, setSliderValue] = useState(7);
+  const [ratingSliderValue, setRatingSliderValue] = useState(7);
+  const [runtimeSliderValue, setRuntimeSliderValue] = useState(180);
 
   const handleToggleAdultContent = () => {
     setShowAdultContent(!showAdultContent);
@@ -14,19 +15,25 @@ const NavBar = ({ onMoviesFetched }) => {
     setGenreSearch(e.target.value);
   };
 
-  const handleSliderChange = (e) => {
-    setSliderValue(e.target.value);
+  const handleRatingSliderChange = (e) => {
+    setRatingSliderValue(e.target.value);
+  };
+
+  const handleRuntimeSliderChange = (e) => {
+    setRuntimeSliderValue(e.target.value);
   };
 
   const handleSearch = async (e) => {
-    e.preventDefault(); // prevent default form submission behavior
+    e.preventDefault();
     setNavbarHeight('10vh');
-    console.log('Form Submitted. Values:', { showAdultContent, genreSearch, sliderValue });
+    console.log('Form Submitted. Values:', { showAdultContent, genreSearch, 
+      ratingSliderValue: ratingSliderValue, runtimeSliderValue: runtimeSliderValue });
 
     const formData = {
       include_adult: showAdultContent,
-      vote_average_gte: sliderValue,
-      genre_strings: genreSearch.split(',').map(s => s.trim())
+      vote_average_gte: ratingSliderValue,
+      genre_strings: genreSearch.split(',').map(s => s.trim()),
+      runtime_lte: runtimeSliderValue
     };
 
     try {
@@ -55,16 +62,17 @@ const NavBar = ({ onMoviesFetched }) => {
     <>
       <div className="navbar" style={{ height: navbarHeight }}>
         <form onSubmit={handleSearch} className="form-container">
+          <h1>Movie Oracle</h1>
           <div className="form-item">
             <button type="button" className="btn-adult" onClick={handleToggleAdultContent}>
-              {showAdultContent ? 'No Adult Content' : 'Show Adult Content'}
+              {showAdultContent ? 'Showing Adult Content' : 'Hiding Adult Content'}
             </button>
           </div>
 
           <div className="form-item">
             <input
               type="text"
-              placeholder="Search by genre"
+              placeholder="Search by genre.."
               className='search-bar'
               value={genreSearch}
               name="genre"
@@ -72,27 +80,42 @@ const NavBar = ({ onMoviesFetched }) => {
             />
           </div>
 
-          <h2>Minimum rating:</h2>
+          
           <div className="form-item">
+            <h2>Minimum rating:</h2>
             <div className='slider'>
-              <label htmlFor="minRating">{sliderValue}</label>
+              <label htmlFor="minRating">{ratingSliderValue} / 10</label>
               <input
                 type="range"
+                className="slider"
                 min="0"
                 max="10"
                 step="0.5"
-                value={sliderValue}
+                value={ratingSliderValue}
                 name="minRating"
                 id="minRating"
-                onChange={handleSliderChange}
+                onChange={handleRatingSliderChange}
               />
             </div>
           </div>
 
-          <h2>Date range:</h2>
+          
           <div className="form-item">
-            
-            
+            <h2>Maximum Runtime:</h2>
+            <div className='slider'>
+              <label htmlFor="maxRuntime">{runtimeSliderValue} minutes</label>
+              <input
+                type="range"
+                className="slider"
+                min="15"
+                max="600"
+                step="5"
+                value={runtimeSliderValue}
+                name="maxRuntime"
+                id="maxRuntime"
+                onChange={handleRuntimeSliderChange}
+              />
+            </div>
           </div>
 
           <div className="form-item">

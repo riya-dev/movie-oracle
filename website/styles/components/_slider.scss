@@ -5,38 +5,60 @@ $slider-border: 2px solid white;
 $slider-label-color: white;
 
 .slider {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
   display: flex;
+  // height: 75%;
   flex-direction: column;
   align-items: center;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s;
 
   input[type="range"] {
-    width: 100%;
+    width: 300px;
     max-width: 300px;
     // margin: $base-margin;
     // padding: $base-padding;
-    border: $slider-border;
+    // border: $slider-border;
     border-radius: math.div($base-border-radius, 1);
     box-sizing: border-box;
     background-color: $slider-background;
     cursor: pointer;
 
     &::-webkit-slider-thumb {
+      -webkit-appearance: none;
       appearance: none;
       width: 30px;
       height: 30px;
-      background-color: #007bff; // thumb color
-      border-radius: 50%;
+      background: white; // thumb color
+      border-radius: math.div($base-border-radius, 1);
+      &:focus {
+        outline: none;
+        transform: scale(1.10);
+      }
     }
 
     &:focus {
       outline: none;
+      opacity: 1;
+      // transform: scale(1.10);
+    }
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.10);
     }
   }
 
   label {
     color: $slider-label-color;
     font-size: $font-size-md;
-    font-weight: bold;
-    // margin-top: $base-margin;
+    // font-weight: bold;
+    opacity: 100%;
+    &:focus {
+      color: black;
+    }
   }
 }

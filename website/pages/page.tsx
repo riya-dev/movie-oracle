@@ -1,5 +1,3 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
 import React, { useEffect, useState } from "react";
 // import { Montserrat } from 'next/font/google'
 // const montserrat = Montserrat({ subsets: ['latin'] })
@@ -24,7 +22,7 @@ function page({ movieResults }) {
 
   return (
     <div>
-      <h1>Movies for you</h1>
+      <h2 className="h2-alt">Movies for you</h2>
       {movieResults.map((movieResult, index) => (
         <div className="card" key={index}>
           <h1 className="card-title">{movieResult.original_title}</h1>
