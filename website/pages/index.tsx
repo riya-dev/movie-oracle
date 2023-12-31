@@ -17,19 +17,19 @@ function index() {
   // const[message, setMessage] = useState("Loading");
   const [movieResults, setMovieResults] = useState([]);
 
-  useEffect(() => {
-    // fetch API
-    fetch("http://localhost:8080/api/home")
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data);
-      // message initially set to 'Loading'.
-      // once data is retrived, message is set to data.message
-      // setMessage(data.message);
-      // console.log(people);
-      setMovieResults(data);
-    });
-  }, [])
+  // useEffect(() => {
+  //   // fetch API
+  //   fetch("http://localhost:8080/api/home")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     // console.log(data);
+  //     // message initially set to 'Loading'.
+  //     // once data is retrived, message is set to data.message
+  //     // setMessage(data.message);
+  //     // console.log(people);
+  //     setMovieResults(data);
+  //   });
+  // }, [])
 
   return (
     <div>

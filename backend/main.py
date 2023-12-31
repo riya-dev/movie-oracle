@@ -85,40 +85,55 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
         return None
     
 
-@app.route("/api/home", methods=['GET'])
+@app.route("/api/home", methods=['GET', 'POST'])
 def return_home():
-    ### authentication ###
+    if request.method == 'POST':
+        ### authentication ###
 
-    url = "https://api.themoviedb.org/3/authentication"
-    headers = {
-        "accept": "application/json",
-        "Authorization": f"Bearer {access_token}"
-    }
-    response = requests.get(url, headers=headers)
-    # print(response.text)
+        url = "https://api.themoviedb.org/3/authentication"
+        headers = {
+            "accept": "application/json",
+            "Authorization": f"Bearer {access_token}"
+        }
+        response = requests.get(url, headers=headers)
+        # print(response.text)
+            
+        ### Discover Movies ###
         
-    ### Discover Movies ###
+        data = request.json
 
-    include_adult = False
-    primary_release_date_gte = "2020-01-01"
-    primary_release_date_lte = "2020-12-31"
-    vote_average_gte = 7.0
-    runtime_gte = 30
-    runtime_lte = 120
+        include_adult = data.get('include_adult', False)
+        primary_release_date_gte = "2020-01-01"
+        primary_release_date_lte = "2020-12-31"
+        vote_average_gte = data.get('vote_average_gte', 7.0)
+        runtime_gte = 30
+        runtime_lte = 120
 
-    genre_strings = ["Comedy"] #"Romance", "Comedy"
-    genre_ids = get_genre_ids(api_key, genre_strings)
-    genres = "|".join(genre_ids)
+        genre_strings = data.get('genre_strings', [])
+        genre_ids = get_genre_ids(api_key, genre_strings)
+        genres = "|".join(genre_ids)
 
-    # keyword_words = ""
-    # keywords = get_keyword_ids(api_key, keyword_words)
-    # # print(keywords)
+        # fetch streaming platforms or query by streaming platform
 
-    # fetch streaming platforms or query by streaming platform
+        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
+        # print("\n", movies)
+        return jsonify(movies)
+    
+    else:
+        include_adult = False
+        vote_average_gte = 7.0
+        genre_strings = []
+        primary_release_date_gte = "2023-01-01"
+        primary_release_date_lte = "2023-12-31"
+        runtime_gte = 30
+        runtime_lte = 120
+        genre_ids = get_genre_ids(api_key, genre_strings)
+        genres = "|".join(genre_ids)
 
-    movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
-    # print("\n", movies)
-    return jsonify(movies)
+        movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
+        
+        return jsonify(movies)
+        
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

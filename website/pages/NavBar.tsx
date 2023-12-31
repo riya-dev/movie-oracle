@@ -19,10 +19,35 @@ const NavBar = () => {
     setSliderValue(e.target.value);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault(); // prevent default form submission behavior
     setNavbarHeight('10vh');
     console.log('Form Submitted. Values:', { showAdultContent, genreSearch, sliderValue });
+
+    const formData = {
+      include_adult: showAdultContent,
+      vote_average_gte: sliderValue,
+      genre_strings: genreSearch.split(',').map(s => s.trim())
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/api/home', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error during data fetching:', error);
+    }
   };
 
   return (
@@ -75,19 +100,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-/*
-const sendDataToFlask = async () => {
-    const data = { key: 'value' }; // Your data object
-    const response = await fetch('http://localhost:5000/submit_data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    console.log(result);
-};
-*/
