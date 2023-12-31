@@ -87,21 +87,21 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
 
 @app.route("/api/home", methods=['GET', 'POST'])
 def return_home():
-    if request.method == 'POST':
-        ### authentication ###
+    ### authentication ###
 
-        url = "https://api.themoviedb.org/3/authentication"
-        headers = {
-            "accept": "application/json",
-            "Authorization": f"Bearer {access_token}"
-        }
-        response = requests.get(url, headers=headers)
-        # print(response.text)
+    url = "https://api.themoviedb.org/3/authentication"
+    headers = {
+        "accept": "application/json",
+        "Authorization": f"Bearer {access_token}"
+    }
+    response = requests.get(url, headers=headers)
+    # print(response.text)
             
+    if request.method == 'POST':
         ### Discover Movies ###
         
         data = request.json
-
+        
         include_adult = data.get('include_adult', False)
         primary_release_date_gte = "2020-01-01"
         primary_release_date_lte = "2020-12-31"
@@ -118,8 +118,8 @@ def return_home():
         movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
         # print("\n", movies)
         return jsonify(movies)
-    
-    else:
+        
+    elif request.method == 'GET':
         include_adult = False
         vote_average_gte = 7.0
         genre_strings = []
@@ -133,7 +133,6 @@ def return_home():
         movies = discover_movies(api_key, include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, runtime_gte, runtime_lte, genres)
         
         return jsonify(movies)
-        
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

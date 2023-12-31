@@ -44,6 +44,7 @@ const NavBar = () => {
       }
 
       const result = await response.json();
+      console.log("Received response:", result);
       console.log(result);
     } catch (error) {
       console.error('Error during data fetching:', error);
