@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const NavBar = () => {
+const NavBar = ({ onMoviesFetched }) => {
   const [navbarHeight, setNavbarHeight] = useState('100vh');
-
   const [showAdultContent, setShowAdultContent] = useState(false);
   const [genreSearch, setGenreSearch] = useState('');
   const [sliderValue, setSliderValue] = useState(7);
@@ -46,6 +45,7 @@ const NavBar = () => {
       const result = await response.json();
       console.log("Received response:", result);
       console.log(result);
+      onMoviesFetched(result);
     } catch (error) {
       console.error('Error during data fetching:', error);
     }
@@ -87,6 +87,12 @@ const NavBar = () => {
                 onChange={handleSliderChange}
               />
             </div>
+          </div>
+
+          <h2>Date range:</h2>
+          <div className="form-item">
+            
+            
           </div>
 
           <div className="form-item">

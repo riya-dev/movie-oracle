@@ -1,12 +1,11 @@
 import type { AppProps } from 'next/app'
 import '../styles/index.css'
-import NavBar from './NavBar'
+import NavBar from '../components/NavBar'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <div className='navbar'></div> */}
-      <NavBar />
+      {/* <NavBar /> */}
       <Component {...pageProps} />
     </>
   );
