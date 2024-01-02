@@ -9,6 +9,17 @@
   // justify-content: center;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .form-item {
   // display: flex;
   // flex-direction: column;
@@ -18,4 +29,9 @@
   &:h2{
     align-self: center;
   }
+
+  &:hover {
+    animation: fadeIn 0.5s ease;
+  }
+
 }
