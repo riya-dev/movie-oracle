@@ -21,17 +21,13 @@
 }
 
 .form-item {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: flex-start;
-  align-self: center;
-
   &:h2{
     align-self: center;
   }
+}
 
-  &:hover {
-    animation: fadeIn 0.5s ease;
-  }
-
+.form-container.transformed {
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
 }

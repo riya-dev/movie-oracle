@@ -10,7 +10,7 @@
     background-color: $navbar-color;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
-    transition: height 0.5s ease;
+    transition: height 1s linear;
 }
 
 @media (max-width: 600px) {

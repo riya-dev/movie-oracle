@@ -30,3 +30,7 @@ a{
     color: $secondary;
     text-decoration: none;
 }
+
+html {
+    scroll-behavior: smooth;
+}

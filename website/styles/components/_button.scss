@@ -35,6 +35,7 @@
 .btn-adult{
     @include btn;
     width: 175px;
+    min-width: 50px;
     font-weight: normal;
     &:hover {
         background-color: lighten($tertiary, 5);

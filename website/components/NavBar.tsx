@@ -7,6 +7,8 @@ const NavBar = ({ onMoviesFetched }) => {
   const [ratingSliderValue, setRatingSliderValue] = useState(7);
   const [runtimeSliderValue, setRuntimeSliderValue] = useState(180);
 
+  const [isTransformed, setIsTransformed] = useState(false);
+
   const handleToggleAdultContent = () => {
     setShowAdultContent(!showAdultContent);
   };
@@ -25,7 +27,8 @@ const NavBar = ({ onMoviesFetched }) => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    setNavbarHeight('10vh');
+    setNavbarHeight('15vh');
+    setIsTransformed(true);
     console.log('Form Submitted. Values:', { showAdultContent, genreSearch, 
       ratingSliderValue: ratingSliderValue, runtimeSliderValue: runtimeSliderValue });
 
@@ -61,8 +64,10 @@ const NavBar = ({ onMoviesFetched }) => {
   return (
     <>
       <div className="navbar" style={{ height: navbarHeight }}>
-        <form onSubmit={handleSearch} className="form-container">
-          <h1>Movie Oracle</h1>
+        <form onSubmit={handleSearch} className={`form-container ${isTransformed ? 'transformed' : ''}`}>
+          <a href="#">
+            <h1>Movie Match</h1>
+          </a>
           <div className="form-item">
             <button type="button" className="btn-adult" onClick={handleToggleAdultContent}>
               {showAdultContent ? 'Showing Adult Content' : 'Hiding Adult Content'}
