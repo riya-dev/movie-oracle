@@ -14,16 +14,21 @@ h1{
     color: white;
     font-size: $font-size-xxl;
     margin-bottom: $base-margin;
-    // margin-top: 6rem;
     align-self: center;
+
+    &.transformed{
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+        margin-left: 0.5rem;
+        margin: 0.5rem auto;
+    }
 }
 
 h2 {
     color: white;
     font-size: $font-size-md;
     align-self: center;
-    // justify-content: center;
-    // align-items: center;
     width: 100%;
 }
 
