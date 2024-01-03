@@ -10,6 +10,7 @@
     // background-color: $navbar-color;
     background: linear-gradient(to bottom right, $primary, $secondary);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 
     transition: height 1s ease;
 }

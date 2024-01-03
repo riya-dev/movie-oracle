@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Index from './page';
+import Footer from '@/components/Footer';
 
 function index() {
   const [movies, setMovies] = useState([]);
@@ -11,8 +12,11 @@ function index() {
 
   return (
     <>
-      <NavBar onMoviesFetched={handleMoviesFetched} />
-      <Index movieResults={movies} />
+      <div className="flex flex-col">
+        <NavBar onMoviesFetched={handleMoviesFetched} />
+        <Index movieResults={movies} />
+        {/* <Footer /> */}
+      </div>
     </>
   );
 }

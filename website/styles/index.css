@@ -241,6 +241,7 @@ html {
   display: flex;
   background: linear-gradient(to bottom right, #003566, #0066cc);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
   transition: height 1s ease;
 }
 
@@ -383,4 +384,19 @@ html {
   width: auto 100%;
   text-align: center;
   margin-bottom: 0.5rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4rem;
+  width: 100%;
+  text-align: center;
+  background-color: #003566;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  color: white;
 }/*# sourceMappingURL=index.css.map */
