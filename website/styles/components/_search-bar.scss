@@ -47,5 +47,10 @@ $search-bar-focus-border: 2px solid #007bff;
 .search-bar-year {
   @include search-bar;
   width: 100px;
+  min-width: 75px;
   margin: 0.5rem;
+
+  &.transformed {
+    width: 75px;
+  }
 }

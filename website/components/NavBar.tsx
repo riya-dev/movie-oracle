@@ -117,7 +117,7 @@ const NavBar = ({ onMoviesFetched }) => {
           </div>
 
           <div className="form-item">
-            <h2 className="h2-navbar">Maximum Runtime</h2>
+            <h2 className="h2-navbar">Maximum runtime</h2>
             <div className='slider'>
               <label htmlFor="maxRuntime">{runtimeSliderValue} minutes</label>
               <input
@@ -134,12 +134,14 @@ const NavBar = ({ onMoviesFetched }) => {
             </div>
           </div>
 
-          <div className="form-item">
+          <div className="form-double">
             <div>
-              <h2 className="h2-navbar">Oldest year</h2>
+              <h2 className="h2-navbar">
+                {isTransformed ? "Oldest" : "Oldest year"}
+              </h2>
               <input
                 type="text"
-                placeholder= "ex. 2020"
+                placeholder= "2020"
                 className={`search-bar-year ${isTransformed ? 'transformed' : ''}`}
                 value={releaseMin}
                 name="min-year"
@@ -148,10 +150,12 @@ const NavBar = ({ onMoviesFetched }) => {
             </div>
 
             <div>
-              <h2 className="h2-navbar">Latest year</h2>
+              <h2 className="h2-navbar">
+                {isTransformed ? "Latest" : "Latest year"}
+              </h2>
               <input
                 type="text"
-                placeholder= "ex. 2024"
+                placeholder= "2024"
                 className={`search-bar-year ${isTransformed ? 'transformed' : ''}`}
                 value={releaseMax}
                 name="max-year"
@@ -161,7 +165,7 @@ const NavBar = ({ onMoviesFetched }) => {
           </div>
 
           <div className="form-item">
-            <button type="submit" className="shiny-search-button">
+            <button type="submit" className={`shiny-search-button ${isTransformed ? 'transformed' : ''}`}>
               Search
             </button>
           </div>

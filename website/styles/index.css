@@ -158,6 +158,9 @@ html {
 .shiny-button:hover {
   box-shadow: 0 0 5px white;
 }
+.shiny-button.transformed {
+  width: 125px;
+}
 
 .shiny-search-button {
   margin: 1rem;
@@ -197,7 +200,8 @@ html {
   transform: translateX(250px) rotate(-25deg);
 }
 .shiny-search-button.transformed {
-  width: 150px;
+  width: 125px;
+  margin: 0;
 }
 .shiny-search-button:hover {
   transform: scale(1.15) rotate(-2.5deg);
@@ -329,6 +333,7 @@ html {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
   width: 100px;
+  min-width: 75px;
   margin: 0.5rem;
 }
 .search-bar-year::-moz-placeholder {
@@ -349,6 +354,9 @@ html {
 }
 .search-bar-year.transformed {
   width: 190px;
+}
+.search-bar-year.transformed {
+  width: 75px;
 }
 
 .slider {
@@ -424,12 +432,18 @@ html {
   align-content: center;
 }
 
+.form-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .form-item h2 {
   align-self: center;
 }
 
 .h1.transformed {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-left: 1rem;
 }
 

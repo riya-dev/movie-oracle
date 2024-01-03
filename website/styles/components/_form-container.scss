@@ -25,6 +25,12 @@
 //   }
 // }
 
+.form-double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .form-item {
   // transition: transform 1s ease, opacity 1s ease;
 

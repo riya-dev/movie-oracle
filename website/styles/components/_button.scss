@@ -87,6 +87,10 @@
     &:hover {
         box-shadow: 0 0 5px white;
     }
+
+    &.transformed {
+        width: 125px;
+    }
 }
 
 .shiny-search-button {
@@ -95,7 +99,8 @@
     padding: 1rem 1.5rem;
 
     &.transformed {
-        width: 150px;
+        width: 125px;
+        margin: 0;
     }
 
     &:hover {

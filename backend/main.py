@@ -103,8 +103,8 @@ def return_home():
         data = request.json
         
         include_adult = data.get('include_adult', False)
-        primary_release_date_gte = data.get('primary_release_date_gte', 1900) + "-01-01"
-        primary_release_date_lte = data.get('primary_release_date_lte', 2024) + "-12-31"
+        primary_release_date_gte = str(data.get('primary_release_date_gte', '2023')) + "-01-01"
+        primary_release_date_lte = str(data.get('primary_release_date_lte', '2023')) + "-12-31"
         vote_average_gte = data.get('vote_average_gte', 7.0)
         # runtime_gte = 30
         runtime_lte = data.get('runtime_lte', 180)
