@@ -2,16 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     left: 0;
     bottom: 0;
-    height: 4rem;
+    height: 3rem;
     width: 100%;
+    margin: 0;
     text-align: center;
     background-color: $primary;
     box-shadow: $base-box-shadow;
     color: white;
-    // z-index: 1;
 }
 
 // flex flex-row bottom-16 left-0 h-16 w-screen m-0

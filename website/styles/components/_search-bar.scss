@@ -29,11 +29,13 @@ $search-bar-focus-border: 2px solid #007bff;
       outline: none;
       border: $search-bar-focus-border;
       transform: scale(1.10);
+      box-shadow: 0 0 5px white;
     }
 
     &:hover{
       // transform: scale(1.10);
       transform: scale(1.10) rotate(-2.5deg);
+      box-shadow: 0 0 5px white;
     }
 
     &.transformed {

@@ -23,26 +23,32 @@ function page({ movieResults }) {
   return (
     <div>
       <h2 className="h2-alt">Movies for you</h2>
-      {movieResults.map((movieResult, index) => (
-        <div className="card" key={index}>
-          <h1 className="card-title">{movieResult.original_title}</h1>
-          <strong>Language:</strong> {movieResult.original_language} <br />
-          {/* <strong>Overview:</strong> {movieResult.overview} <br /> */}
-          {movieResult.overview} <br />
-          <strong>Release Date:</strong> {movieResult.release_date} <br />
-          <strong>Adult:</strong> {movieResult.adult ? 'Yes' : 'No'} <br />
-          <strong>Rating:</strong> {movieResult.vote_average} / 10 <br />
-          {movieResult.poster_path && (
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movieResult.poster_path}`}
-              alt={`Poster for ${movieResult.original_title}`}
-              className="poster-image"
-              draggable="false"
-              style={{ width: '20%', height: 'auto' }}
-            />
-          )}
-        </div>
-      ))}
+      <div className="card-container">
+        {movieResults.map((movieResult, index) => (
+          <div className="card" key={index}>
+            <div className="card-text">
+              <h1 className="card-title">{movieResult.original_title}</h1>
+              <p className="card-overview">{movieResult.overview}</p>
+              <p className="card-info">
+                <strong> Language: {movieResult.original_language}</strong> ● 
+                <strong> {movieResult.release_date}</strong>  ● 
+                <strong> {movieResult.adult ? 'Adult' : 'Not Adult'}</strong> ● 
+                <strong> {movieResult.vote_average} / 10 </strong> <br />
+                {/* <strong>Genres:</strong> {movieResult.genre_ids.join(', ')}<br /> */}
+              </p>
+            </div>
+            {movieResult.poster_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movieResult.poster_path}`}
+                alt={`Poster for ${movieResult.original_title}`}
+                className="poster-image"
+                draggable="false"
+                style={{ width: '20%', height: 'auto' }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

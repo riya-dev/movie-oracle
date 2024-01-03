@@ -1,48 +1,14 @@
-// @use 'sass:math';
-
-// .card{
-//     display: block;
-//     // padding: $base-padding;
-//     border: $base-border-thickness solid $secondary;
-//     box-shadow: $base-box-shadow;
-//     border-radius: math.div($base-border-radius, 4);
-//     background-color: white;
-
-//     margin: $base-margin;
-//     // text-align: center;
-//     transition: transform 0.3s ease-in-out;
-
-//     .card-title{
-//         font-size: $font-size-lg;
-//         padding-bottom: $base-padding;
-//         font-weight: bold;
-//         margin-top: 0rem;
-//         color: $primary;
-//         // grid...
-
-//     }
-
-//     .card-body {
-//         font-size: $base-font-size;
-
-//         a {
-//             text-decoration: underline;
-//         }
-//     }
-
-// &:hover{
-//     transform: scale(1.10);
-// }
-// }
-
-
 @use 'sass:math';
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
 
 .card {
     display: flex;
-    // flex-direction: row;
-    // align-items: center;
     justify-content: space-between;
+    align-items: center;
     border: $base-border-thickness solid $secondary;
     box-shadow: $base-box-shadow;
     border-radius: math.div($base-border-radius, 1);
@@ -52,33 +18,62 @@
     margin-bottom: $base-margin * 2;
     transition: transform 0.3s ease-in-out;
 
-    .card-content {
+    .card-text {
         padding: $base-padding;
-        flex: 1;
+        flex-grow: 1;
     }
 
     .card-title {
         font-size: $font-size-xl;
         font-weight: bold;
-        margin-top: 0;
-        margin-left: 1rem;
         color: $primary;
-    }
-
-    .card-body {
+      }
+    
+    .card-overview {
         font-size: $base-font-size;
-        a {
-            text-decoration: underline;
-        }
     }
 
-    img.poster-image {
+    .card-info {
+        font-size: $base-font-size;
+    }
+
+    // h1 {
+    //     color: $primary;
+    //     font-size: $font-size-xl;
+    //     font-weight: bold;
+    //     margin: auto;
+        
+    // }
+
+    // .card-content {
+    //     padding: $base-padding;
+    //     flex: 1;
+    // }
+
+    // .card-title {
+    //     font-size: $font-size-xl;
+    //     font-weight: bold;
+    //     margin-top: 0;
+    //     justify-content: center;
+    //     // margin-left: 1rem;
+    //     color: $primary;
+    // }
+
+    // .card-body {
+    //     font-size: $base-font-size;
+    //     a {
+    //         text-decoration: underline;
+    //     }
+    // }
+
+    .poster-image {
         // width: 15%;
         height: auto;
-        border-radius: $base-border-radius;
+        margin: 0.5rem;
+        border-radius: math.div($base-border-radius, 2);
     }
-}
 
-.card:hover {
-    transform: scale(1.05);
+    &:hover {
+        transform: scale(1.05);
+    }
 }

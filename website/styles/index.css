@@ -31,9 +31,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .card {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 2px solid #0066cc;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -43,28 +49,26 @@ html {
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease-in-out;
 }
-.card .card-content {
+.card .card-text {
   padding: 0.75rem;
-  flex: 1;
+  flex-grow: 1;
 }
 .card .card-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 0;
-  margin-left: 1rem;
   color: #003566;
 }
-.card .card-body {
+.card .card-overview {
   font-size: 1rem;
 }
-.card .card-body a {
-  text-decoration: underline;
+.card .card-info {
+  font-size: 1rem;
 }
-.card img.poster-image {
+.card .poster-image {
   height: auto;
-  border-radius: 20px;
+  margin: 0.5rem;
+  border-radius: 10px;
 }
-
 .card:hover {
   transform: scale(1.05);
 }
@@ -191,7 +195,18 @@ html {
   animation: shine 200ms linear;
   transform: translateX(250px) rotate(-25deg);
 }
+.shiny-button:hover {
+  box-shadow: 0 0 5px white;
+}
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
 .shiny-search-button {
   margin: 1rem;
   background: #99ccff;
@@ -208,6 +223,7 @@ html {
   overflow: hidden;
   transition: all 100ms linear;
   font-weight: bold;
+  padding: 1rem 1.5rem;
 }
 .shiny-search-button:hover {
   transform: scale(1.1) rotate(-2.5deg);
@@ -230,6 +246,15 @@ html {
 }
 .shiny-search-button.transformed {
   width: 150px;
+}
+.shiny-search-button:hover {
+  transform: scale(1.15) rotate(-2.5deg);
+  box-shadow: 0 0 10px white;
+}
+.shiny-search-button:hover::after {
+  width: 200%;
+  opacity: 0.7;
+  animation: shine 300ms linear;
 }
 
 .navbar {
@@ -273,9 +298,11 @@ html {
   outline: none;
   border: 2px solid #007bff;
   transform: scale(1.1);
+  box-shadow: 0 0 5px white;
 }
 .search-bar:hover {
   transform: scale(1.1) rotate(-2.5deg);
+  box-shadow: 0 0 5px white;
 }
 .search-bar.transformed {
   width: 190px;
@@ -327,6 +354,7 @@ html {
   opacity: 1;
   background-color: #b3d9ff;
   transform: scale(1.1) rotate(-2.5deg);
+  box-shadow: 0 0 5px white;
 }
 .slider input[type=range].transformed {
   width: 160px;
@@ -353,17 +381,7 @@ html {
   align-content: center;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.form-item:h2 {
+.form-item h2 {
   align-self: center;
 }
 
@@ -390,13 +408,17 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   left: 0;
   bottom: 0;
-  height: 4rem;
+  height: 3rem;
   width: 100%;
+  margin: 0;
   text-align: center;
   background-color: #003566;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   color: white;
+}
+
+.index {
+  flex-direction: column;
 }/*# sourceMappingURL=index.css.map */

@@ -12,10 +12,10 @@ function index() {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="index">
         <NavBar onMoviesFetched={handleMoviesFetched} />
         <Index movieResults={movies} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );

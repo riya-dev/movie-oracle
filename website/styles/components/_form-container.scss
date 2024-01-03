@@ -6,8 +6,6 @@
   margin: auto;
   align-items: center;
   align-content: center;
-  // text-align: center;
-  // justify-content: center;
 
   &.transformed {
     flex-direction: row;
@@ -16,19 +14,21 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 .form-item {
-  &:h2{
+  // transition: transform 1s ease, opacity 1s ease;
+
+  h2{
     align-self: center;
   }
 }

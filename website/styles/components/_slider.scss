@@ -58,6 +58,7 @@ $slider-label-color: white;
       opacity: 1;
       background-color: lighten($tertiary, 5);
       transform: scale(1.10) rotate(-2.5deg);
+      box-shadow: 0 0 5px white;
     }
 
     &.transformed {
