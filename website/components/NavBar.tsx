@@ -6,6 +6,8 @@ const NavBar = ({ onMoviesFetched }) => {
   const [genreSearch, setGenreSearch] = useState('');
   const [ratingSliderValue, setRatingSliderValue] = useState(7);
   const [runtimeSliderValue, setRuntimeSliderValue] = useState(180);
+  const [releaseMin, setReleaseMin] = useState('');
+  const [releaseMax, setReleaseMax] = useState('');
 
   const [isTransformed, setIsTransformed] = useState(false);
 
@@ -25,6 +27,14 @@ const NavBar = ({ onMoviesFetched }) => {
     setRuntimeSliderValue(e.target.value);
   };
 
+  const handleReleaseMinSearchChange = (e) => {
+    setReleaseMin(e.target.value);
+  };
+
+  const handleReleaseMaxSearchChange = (e) => {
+    setReleaseMax(e.target.value);
+  };
+
   const handleSearch = async (e) => {
     e.preventDefault();
     setNavbarHeight('15vh');
@@ -36,7 +46,9 @@ const NavBar = ({ onMoviesFetched }) => {
       include_adult: showAdultContent,
       vote_average_gte: ratingSliderValue,
       genre_strings: genreSearch.split(',').map(s => s.trim()),
-      runtime_lte: runtimeSliderValue
+      runtime_lte: runtimeSliderValue,
+      primary_release_date_gte: releaseMin,
+      primary_release_date_lte: releaseMax
     };
 
     try {
@@ -77,8 +89,8 @@ const NavBar = ({ onMoviesFetched }) => {
           <div className="form-item">
             <input
               type="text"
-              placeholder= {isTransformed ? "Search by genre..." : "Search by genre... (ex. romance, comedy)"}
-              className={`search-bar ${isTransformed ? 'transformed' : ''}`}
+              placeholder= {isTransformed ? "Search by genre..." : "Search by genre... (ex. romance, horror)"}
+              className={`search-bar-genre ${isTransformed ? 'transformed' : ''}`}
               value={genreSearch}
               name="genre"
               onChange={handleGenreSearchChange}
@@ -118,6 +130,32 @@ const NavBar = ({ onMoviesFetched }) => {
                 name="maxRuntime"
                 id="maxRuntime"
                 onChange={handleRuntimeSliderChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-item">
+            <div>
+              <h2 className="h2-navbar">Oldest year</h2>
+              <input
+                type="text"
+                placeholder= "ex. 2020"
+                className={`search-bar-year ${isTransformed ? 'transformed' : ''}`}
+                value={releaseMin}
+                name="min-year"
+                onChange={handleReleaseMinSearchChange}
+              />
+            </div>
+
+            <div>
+              <h2 className="h2-navbar">Latest year</h2>
+              <input
+                type="text"
+                placeholder= "ex. 2024"
+                className={`search-bar-year ${isTransformed ? 'transformed' : ''}`}
+                value={releaseMax}
+                name="max-year"
+                onChange={handleReleaseMaxSearchChange}
               />
             </div>
           </div>

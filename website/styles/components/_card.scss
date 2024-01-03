@@ -21,6 +21,7 @@
     .card-text {
         padding: $base-padding;
         flex-grow: 1;
+        margin: auto;
     }
 
     .card-title {
@@ -37,37 +38,7 @@
         font-size: $base-font-size;
     }
 
-    // h1 {
-    //     color: $primary;
-    //     font-size: $font-size-xl;
-    //     font-weight: bold;
-    //     margin: auto;
-        
-    // }
-
-    // .card-content {
-    //     padding: $base-padding;
-    //     flex: 1;
-    // }
-
-    // .card-title {
-    //     font-size: $font-size-xl;
-    //     font-weight: bold;
-    //     margin-top: 0;
-    //     justify-content: center;
-    //     // margin-left: 1rem;
-    //     color: $primary;
-    // }
-
-    // .card-body {
-    //     font-size: $base-font-size;
-    //     a {
-    //         text-decoration: underline;
-    //     }
-    // }
-
     .poster-image {
-        // width: 15%;
         height: auto;
         margin: 0.5rem;
         border-radius: math.div($base-border-radius, 2);

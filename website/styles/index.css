@@ -52,6 +52,7 @@ html {
 .card .card-text {
   padding: 0.75rem;
   flex-grow: 1;
+  margin: auto;
 }
 .card .card-title {
   font-size: 2rem;
@@ -111,47 +112,6 @@ html {
   transform: scale(1.1);
 }
 
-.btn-adult {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  border: 0;
-  padding: 0.75rem;
-  border-radius: 5px;
-  background-color: #99ccff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.15rem;
-  font-weight: bold;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  width: 175px;
-  min-width: 50px;
-  font-weight: normal;
-}
-.btn-adult:hover {
-  background-color: #b3d9ff;
-  transform: scale(1.1);
-}
-.btn-adult .btn-outlined {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  border: 0;
-  padding: 0.75rem;
-  border-radius: 5px;
-  background-color: white;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.15rem;
-  font-weight: bold;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  border: 2px solid #99ccff;
-}
-.btn-adult .btn-outlined:hover {
-  background-color: #99ccff;
-  transform: scale(1.1);
-}
-
 @keyframes shine {
   0% {
     transform: translateX(-30px) rotate(-25deg);
@@ -199,14 +159,6 @@ html {
   box-shadow: 0 0 5px white;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
 .shiny-search-button {
   margin: 1rem;
   background: #99ccff;
@@ -257,6 +209,62 @@ html {
   animation: shine 300ms linear;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.shiny-result-button {
+  margin: 1rem;
+  background: #99ccff;
+  color: #003566;
+  font-family: "Montserrat", sans-serif;
+  border: 0;
+  padding: 0.75rem 1.25rem;
+  width: 175px;
+  min-width: 50px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+  font-size: 1rem;
+  animation: pulse 1.5s infinite;
+  background: #e6f2ff;
+  color: #003566;
+  padding: 0.25rem;
+  margin-top: 0rem;
+  margin-left: 1rem;
+  margin: auto;
+}
+.shiny-result-button:hover {
+  transform: scale(1.1) rotate(-2.5deg);
+  color: white;
+}
+.shiny-result-button:hover::after {
+  content: "";
+  display: block;
+  width: 175px;
+  min-width: 50px;
+  height: 175%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.5;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  animation: shine 200ms linear;
+  transform: translateX(250px) rotate(-25deg);
+}
+.shiny-result-button:hover {
+  color: #003566;
+  box-shadow: 0 0 2px #0066cc;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -275,7 +283,7 @@ html {
     flex-direction: column;
   }
 }
-.search-bar {
+.search-bar-genre {
   width: 400px;
   min-width: 100px;
   padding: 0.75rem;
@@ -288,23 +296,58 @@ html {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.search-bar::-moz-placeholder {
+.search-bar-genre::-moz-placeholder {
   color: #999;
 }
-.search-bar::placeholder {
+.search-bar-genre::placeholder {
   color: #999;
 }
-.search-bar:focus {
+.search-bar-genre:focus {
   outline: none;
   border: 2px solid #007bff;
   transform: scale(1.1);
   box-shadow: 0 0 5px white;
 }
-.search-bar:hover {
+.search-bar-genre:hover {
   transform: scale(1.1) rotate(-2.5deg);
   box-shadow: 0 0 5px white;
 }
-.search-bar.transformed {
+.search-bar-genre.transformed {
+  width: 190px;
+}
+
+.search-bar-year {
+  width: 400px;
+  min-width: 100px;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1.15rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 100px;
+  margin: 0.5rem;
+}
+.search-bar-year::-moz-placeholder {
+  color: #999;
+}
+.search-bar-year::placeholder {
+  color: #999;
+}
+.search-bar-year:focus {
+  outline: none;
+  border: 2px solid #007bff;
+  transform: scale(1.1);
+  box-shadow: 0 0 5px white;
+}
+.search-bar-year:hover {
+  transform: scale(1.1) rotate(-2.5deg);
+  box-shadow: 0 0 5px white;
+}
+.search-bar-year.transformed {
   width: 190px;
 }
 
@@ -386,14 +429,15 @@ html {
 }
 
 .h1.transformed {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-left: 1rem;
 }
 
 .h2-alt {
   color: #003566;
   margin-top: 8rem;
-  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
   width: auto 100%;
   text-align: center;
 }

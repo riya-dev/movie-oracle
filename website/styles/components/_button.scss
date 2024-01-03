@@ -33,26 +33,6 @@
     }
 }
 
-.btn-adult{
-    @include btn;
-    width: 175px;
-    min-width: 50px;
-    font-weight: normal;
-    &:hover {
-        background-color: lighten($tertiary, 5);
-        transform: scale(1.10);
-    }
-
-    .btn-outlined {
-        @include btn(white);
-        border: $base-border-thickness solid $tertiary;
-        &:hover {
-            background-color: $tertiary;
-            transform: scale(1.10);
-        }
-    }
-}
-
 @keyframes shine {
     0% {
         transform: translateX(-30px) rotate(-25deg);
@@ -109,16 +89,10 @@
     }
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
 .shiny-search-button {
     @include shine;
     font-weight: bold;
     padding: 1rem 1.5rem;
-    // animation: pulse .5s infinite;
 
     &.transformed {
         width: 150px;
@@ -133,5 +107,27 @@
             opacity: 0.7;
             animation: shine 300ms linear;
         }
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.shiny-result-button {
+    @include shine;
+    font-size: 1rem;
+    animation: pulse 1.5s infinite;
+    background: lighten($tertiary, 15%);
+    color: $primary;
+    padding: 0.25rem;
+    margin-top: 0rem;
+    margin-left: 1rem;
+    margin: auto;
+
+    &:hover {
+        color: $primary;
+        box-shadow: 0 0 2px $secondary;
     }
 }

@@ -5,13 +5,10 @@ $search-bar-border: 1px solid #ccc;
 $search-bar-placeholder-color: #999;
 $search-bar-focus-border: 2px solid #007bff;
 
-.search-bar {
-  // width: 100%;
+@mixin search-bar {
   width: 400px;
   min-width: 100px;
-  // margin: $base-margin;
   padding: $base-padding;
-  // border: $search-bar-border;
   border: 0;
   border-radius: math.div($base-border-radius, 4);
   box-sizing: border-box;
@@ -41,4 +38,14 @@ $search-bar-focus-border: 2px solid #007bff;
     &.transformed {
       width: 190px;
     }
+}
+
+.search-bar-genre {
+  @include search-bar;
+}
+
+.search-bar-year {
+  @include search-bar;
+  width: 100px;
+  margin: 0.5rem;
 }

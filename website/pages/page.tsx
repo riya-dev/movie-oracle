@@ -36,6 +36,14 @@ function page({ movieResults }) {
                 <strong> {movieResult.vote_average} / 10 </strong> <br />
                 {/* <strong>Genres:</strong> {movieResult.genre_ids.join(', ')}<br /> */}
               </p>
+              
+              {/* <p className="card-info">
+                <strong>Sound interesting?</strong>
+              </p>
+              <button type="button" className="shiny-result-button">
+                See more
+              </button> */}
+
             </div>
             {movieResult.poster_path && (
               <img
