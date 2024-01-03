@@ -6,17 +6,19 @@ $search-bar-placeholder-color: #999;
 $search-bar-focus-border: 2px solid #007bff;
 
 .search-bar {
-  width: 100%;
-  max-width: 400px;
+  // width: 100%;
+  width: 400px;
+  min-width: 100px;
   // margin: $base-margin;
   padding: $base-padding;
-  border: $search-bar-border;
+  // border: $search-bar-border;
+  border: 0;
   border-radius: math.div($base-border-radius, 4);
   box-sizing: border-box;
   font-size: $font-size-md;
   font-family: 'Montserrat', sans-serif;
-  // font-weight: bold;
   background-color: $search-bar-background;
+  box-shadow: $base-box-shadow;
   transition: transform 0.2s ease, background-color 0.2s ease;
 
     &::placeholder {
@@ -30,6 +32,11 @@ $search-bar-focus-border: 2px solid #007bff;
     }
 
     &:hover{
-      transform: scale(1.10);
+      // transform: scale(1.10);
+      transform: scale(1.10) rotate(-2.5deg);
+    }
+
+    &.transformed {
+      width: 187px;
     }
 }

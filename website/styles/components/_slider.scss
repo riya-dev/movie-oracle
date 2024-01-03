@@ -46,12 +46,15 @@ $slider-label-color: white;
       & + label {
         color: black;
       }
-      // transform: scale(1.10);
     }
 
     &:hover {
       opacity: 1;
-      transform: scale(1.10);
+      transform: scale(1.10) rotate(-2.5deg);
+    }
+
+    &.transformed {
+      width: 150px;
     }
   }
 

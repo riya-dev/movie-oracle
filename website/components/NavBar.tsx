@@ -66,10 +66,10 @@ const NavBar = ({ onMoviesFetched }) => {
       <div className="navbar" style={{ height: navbarHeight }}>
         <form onSubmit={handleSearch} className={`form-container ${isTransformed ? 'transformed' : ''}`}>
           <a href="#">
-            <h1>Movie Match</h1>
+            <h1 className={`h1 ${isTransformed ? 'transformed' : ''}`}>Movie Match</h1>
           </a>
           <div className="form-item">
-            <button type="button" className="btn-adult" onClick={handleToggleAdultContent}>
+            <button type="button" className={`shiny-button ${isTransformed ? 'transformed' : ''}`} onClick={handleToggleAdultContent}>
               {showAdultContent ? 'Showing Adult Content' : 'Hiding Adult Content'}
             </button>
           </div>
@@ -77,8 +77,8 @@ const NavBar = ({ onMoviesFetched }) => {
           <div className="form-item">
             <input
               type="text"
-              placeholder="Search by genre.."
-              className='search-bar'
+              placeholder="Search by genre.. (ex. romance, comedy)"
+              className={`search-bar ${isTransformed ? 'transformed' : ''}`}
               value={genreSearch}
               name="genre"
               onChange={handleGenreSearchChange}
@@ -87,12 +87,12 @@ const NavBar = ({ onMoviesFetched }) => {
 
           
           <div className="form-item">
-            <h2>Minimum rating:</h2>
+            <h2>Minimum rating</h2>
             <div className='slider'>
               <label htmlFor="minRating">{ratingSliderValue} / 10</label>
               <input
                 type="range"
-                className="slider"
+                className={`slider ${isTransformed ? 'transformed' : ''}`}
                 min="0"
                 max="10"
                 step="0.5"
@@ -104,14 +104,13 @@ const NavBar = ({ onMoviesFetched }) => {
             </div>
           </div>
 
-          
           <div className="form-item">
-            <h2>Maximum Runtime:</h2>
+            <h2>Maximum Runtime</h2>
             <div className='slider'>
               <label htmlFor="maxRuntime">{runtimeSliderValue} minutes</label>
               <input
                 type="range"
-                className="slider"
+                className={`slider ${isTransformed ? 'transformed' : ''}`}
                 min="15"
                 max="600"
                 step="5"
@@ -124,7 +123,7 @@ const NavBar = ({ onMoviesFetched }) => {
           </div>
 
           <div className="form-item">
-            <button type="submit" className="btn">
+            <button type="submit" className="shiny-search-button">
               Search
             </button>
           </div>

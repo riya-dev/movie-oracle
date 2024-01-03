@@ -57,7 +57,7 @@ html {
 }
 
 .card.hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .btn {
@@ -71,6 +71,7 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
   font-weight: bold;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .btn:hover {
@@ -88,6 +89,7 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
   font-weight: bold;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
   border: 2px solid #99ccff;
 }
@@ -107,6 +109,7 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
   font-weight: bold;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
   width: 175px;
   min-width: 50px;
@@ -127,12 +130,93 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
   font-weight: bold;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
   border: 2px solid #99ccff;
 }
 .btn-adult .btn-outlined:hover {
   background-color: #99ccff;
   transform: scale(1.1);
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-30px) rotate(-25deg);
+  }
+  100% {
+    transform: translateX(250px) rotate(-25deg);
+  }
+}
+.shiny-button {
+  margin: 1rem;
+  background: #99ccff;
+  font-family: "Montserrat", sans-serif;
+  border: 0;
+  padding: 0.75rem 1.25rem;
+  width: 175px;
+  min-width: 50px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+}
+.shiny-button:hover {
+  transform: scale(1.1) rotate(-2.5deg);
+}
+.shiny-button:hover::after {
+  content: "";
+  display: block;
+  width: 175px;
+  min-width: 50px;
+  height: 175%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.5;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  animation: shine 200ms linear;
+  transform: translateX(250px) rotate(-25deg);
+}
+
+.shiny-search-button {
+  margin: 1rem;
+  background: #99ccff;
+  font-family: "Montserrat", sans-serif;
+  border: 0;
+  padding: 0.75rem 1.25rem;
+  width: 175px;
+  min-width: 50px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 100ms linear;
+  font-weight: bold;
+}
+.shiny-search-button:hover {
+  transform: scale(1.1) rotate(-2.5deg);
+}
+.shiny-search-button:hover::after {
+  content: "";
+  display: block;
+  width: 175px;
+  min-width: 50px;
+  height: 175%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.5;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  animation: shine 200ms linear;
+  transform: translateX(250px) rotate(-25deg);
+}
+.shiny-search-button.transformed {
+  width: 150px;
 }
 
 .navbar {
@@ -153,15 +237,16 @@ html {
   }
 }
 .search-bar {
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
+  min-width: 100px;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 0;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 1.15rem;
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .search-bar::-moz-placeholder {
@@ -176,7 +261,10 @@ html {
   transform: scale(1.1);
 }
 .search-bar:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-2.5deg);
+}
+.search-bar.transformed {
+  width: 187px;
 }
 
 .slider {
@@ -218,7 +306,10 @@ html {
 }
 .slider input[type=range]:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-2.5deg);
+}
+.slider input[type=range].transformed {
+  width: 150px;
 }
 .slider label {
   color: white;
@@ -233,6 +324,11 @@ html {
   flex-direction: column;
   gap: 1rem;
   margin: auto;
+  align-items: center;
+  align-content: center;
+}
+.form-container.transformed {
+  flex-direction: row;
   align-items: center;
   align-content: center;
 }
@@ -251,10 +347,9 @@ html {
   align-self: center;
 }
 
-.form-container.transformed {
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
+.h1.transformed {
+  font-size: 2rem;
+  margin-left: 1rem;
 }
 
 .h2-alt {
