@@ -164,6 +164,7 @@ html {
 }
 .shiny-button:hover {
   transform: scale(1.1) rotate(-2.5deg);
+  color: white;
 }
 .shiny-button:hover::after {
   content: "";
@@ -199,6 +200,7 @@ html {
 }
 .shiny-search-button:hover {
   transform: scale(1.1) rotate(-2.5deg);
+  color: white;
 }
 .shiny-search-button:hover::after {
   content: "";
@@ -226,9 +228,9 @@ html {
   width: 100vw;
   margin: 0;
   display: flex;
-  background-color: #004d99;
+  background: linear-gradient(to bottom right, #003566, #0066cc);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: height 1s linear;
+  transition: height 1s ease;
 }
 
 @media (max-width: 600px) {
@@ -264,7 +266,7 @@ html {
   transform: scale(1.1) rotate(-2.5deg);
 }
 .search-bar.transformed {
-  width: 187px;
+  width: 190px;
 }
 
 .slider {
@@ -281,7 +283,8 @@ html {
   min-width: 100px;
   border-radius: 20px;
   box-sizing: border-box;
-  background-color: #007bff;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+  background-color: #99ccff;
   cursor: pointer;
 }
 .slider input[type=range]::-webkit-slider-thumb {
@@ -290,26 +293,31 @@ html {
   width: 30px;
   height: 30px;
   background: white;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
 }
 .slider input[type=range]::-webkit-slider-thumb:focus {
   outline: none;
   transform: scale(1.1);
-  opacity: 1;
+  background-color: #b3d9ff;
+}
+.slider input[type=range]::-webkit-slider-thumb:focus label {
+  color: black;
+}
+.slider input[type=range]::-webkit-slider-thumb:hover {
+  background-color: #0066cc;
 }
 .slider input[type=range]:focus {
   outline: none;
-  opacity: 1;
-}
-.slider input[type=range]:focus + label {
-  color: black;
+  background-color: #b3d9ff;
 }
 .slider input[type=range]:hover {
   opacity: 1;
+  background-color: #b3d9ff;
   transform: scale(1.1) rotate(-2.5deg);
 }
 .slider input[type=range].transformed {
-  width: 150px;
+  width: 160px;
 }
 .slider label {
   color: white;
@@ -358,4 +366,10 @@ html {
   font-size: 3rem;
   width: auto 100%;
   text-align: center;
+}
+
+.h2-navbar {
+  width: auto 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=index.css.map */

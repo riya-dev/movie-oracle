@@ -1,6 +1,5 @@
 @use 'sass:math';
 
-$slider-background: #007bff;
 $slider-border: 2px solid white;
 $slider-label-color: white;
 
@@ -22,7 +21,8 @@ $slider-label-color: white;
     // border: $slider-border;
     border-radius: math.div($base-border-radius, 1);
     box-sizing: border-box;
-    background-color: $slider-background;
+    box-shadow: $darker-box-shadow;
+    background-color: $tertiary;
     cursor: pointer;
 
     &::-webkit-slider-thumb {
@@ -31,30 +31,37 @@ $slider-label-color: white;
       width: 30px;
       height: 30px;
       background: white; // thumb color
+      box-shadow: $darker-box-shadow;
       border-radius: math.div($base-border-radius, 1);
 
       &:focus {
         outline: none;
         transform: scale(1.10);
-        opacity: 1;
+        background-color: lighten($tertiary, 5);
+
+        label {
+          color: black;
+        }
+      }
+
+      &:hover {
+        background-color: $secondary;
       }
     }
 
     &:focus {
       outline: none;
-      opacity: 1;
-      & + label {
-        color: black;
-      }
+      background-color: lighten($tertiary, 5);
     }
 
     &:hover {
       opacity: 1;
+      background-color: lighten($tertiary, 5);
       transform: scale(1.10) rotate(-2.5deg);
     }
 
     &.transformed {
-      width: 150px;
+      width: 160px;
     }
   }
 
@@ -64,4 +71,10 @@ $slider-label-color: white;
     align-self: center;
     opacity: 100%;
   }
+
+  // &:focus-within {
+  //   label {
+  //     font-weight: bold;
+  //   }
+  // }
 }

@@ -2,7 +2,7 @@
 $background-color: #e6f3ff;
 $primary: #003566; // darker
 $secondary: #0066cc; // lighter
-$tertiary: #99ccff;
+$tertiary: #99ccff; // lightest
 
 $dark-background-color: black;
 $dark-primary: #cce6ff;
@@ -30,6 +30,7 @@ $base-border-radius: 20px;
 
 // box shadow
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+$darker-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
 
 // font sizes
 $base-font-size: 1rem;

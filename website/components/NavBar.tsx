@@ -77,7 +77,7 @@ const NavBar = ({ onMoviesFetched }) => {
           <div className="form-item">
             <input
               type="text"
-              placeholder="Search by genre.. (ex. romance, comedy)"
+              placeholder= {isTransformed ? "Search by genre..." : "Search by genre... (ex. romance, comedy)"}
               className={`search-bar ${isTransformed ? 'transformed' : ''}`}
               value={genreSearch}
               name="genre"
@@ -87,7 +87,7 @@ const NavBar = ({ onMoviesFetched }) => {
 
           
           <div className="form-item">
-            <h2>Minimum rating</h2>
+            <h2 className="h2-navbar">Minimum rating</h2>
             <div className='slider'>
               <label htmlFor="minRating">{ratingSliderValue} / 10</label>
               <input
@@ -105,7 +105,7 @@ const NavBar = ({ onMoviesFetched }) => {
           </div>
 
           <div className="form-item">
-            <h2>Maximum Runtime</h2>
+            <h2 className="h2-navbar">Maximum Runtime</h2>
             <div className='slider'>
               <label htmlFor="maxRuntime">{runtimeSliderValue} minutes</label>
               <input

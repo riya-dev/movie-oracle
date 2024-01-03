@@ -67,7 +67,6 @@
     margin: 1rem;
     background: $tertiary;
     font-family: 'Montserrat', sans-serif;
-    // color: #FFFFFF;
     border: 0;
     padding: 0.75rem 1.25rem;
     width: 175px;
@@ -81,6 +80,7 @@
 
     &:hover {
         transform: scale(1.10) rotate(-2.5deg);
+        color: white;
 
         &::after {
             content: '';
