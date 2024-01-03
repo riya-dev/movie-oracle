@@ -64,7 +64,7 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
         "with_genres": genres,
         # "with_keywords": keywords,
     }
-    
+        
     response = requests.get(url, params=params)
     
     if response.status_code == 200:

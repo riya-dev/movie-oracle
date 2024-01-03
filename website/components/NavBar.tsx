@@ -40,15 +40,17 @@ const NavBar = ({ onMoviesFetched }) => {
     setNavbarHeight('15vh');
     setIsTransformed(true);
     console.log('Form Submitted. Values:', { showAdultContent, genreSearch, 
-      ratingSliderValue: ratingSliderValue, runtimeSliderValue: runtimeSliderValue });
+      ratingSliderValue, runtimeSliderValue, releaseMin, releaseMax
+      
+    });
 
     const formData = {
       include_adult: showAdultContent,
       vote_average_gte: ratingSliderValue,
       genre_strings: genreSearch.split(',').map(s => s.trim()),
       runtime_lte: runtimeSliderValue,
-      primary_release_date_gte: releaseMin,
-      primary_release_date_lte: releaseMax
+      primary_release_date_gte: releaseMin || '2000',
+      primary_release_date_lte: releaseMax || '2024',
     };
 
     try {
