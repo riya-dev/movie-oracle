@@ -27,7 +27,8 @@ function page({ movieResults }) {
         <div className="card" key={index}>
           <h1 className="card-title">{movieResult.original_title}</h1>
           <strong>Language:</strong> {movieResult.original_language} <br />
-          <strong>Overview:</strong> {movieResult.overview} <br />
+          {/* <strong>Overview:</strong> {movieResult.overview} <br /> */}
+          {movieResult.overview} <br />
           <strong>Release Date:</strong> {movieResult.release_date} <br />
           <strong>Adult:</strong> {movieResult.adult ? 'Yes' : 'No'} <br />
           <strong>Rating:</strong> {movieResult.vote_average} / 10 <br />
@@ -37,7 +38,7 @@ function page({ movieResults }) {
               alt={`Poster for ${movieResult.original_title}`}
               className="poster-image"
               draggable="false"
-              style={{ width: '15%', height: 'auto' }}
+              style={{ width: '20%', height: 'auto' }}
             />
           )}
         </div>

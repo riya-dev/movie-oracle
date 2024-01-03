@@ -1,34 +1,84 @@
+// @use 'sass:math';
+
+// .card{
+//     display: block;
+//     // padding: $base-padding;
+//     border: $base-border-thickness solid $secondary;
+//     box-shadow: $base-box-shadow;
+//     border-radius: math.div($base-border-radius, 4);
+//     background-color: white;
+
+//     margin: $base-margin;
+//     // text-align: center;
+//     transition: transform 0.3s ease-in-out;
+
+//     .card-title{
+//         font-size: $font-size-lg;
+//         padding-bottom: $base-padding;
+//         font-weight: bold;
+//         margin-top: 0rem;
+//         color: $primary;
+//         // grid...
+
+//     }
+
+//     .card-body {
+//         font-size: $base-font-size;
+
+//         a {
+//             text-decoration: underline;
+//         }
+//     }
+
+// &:hover{
+//     transform: scale(1.10);
+// }
+// }
+
+
 @use 'sass:math';
 
-.card{
-    display: block;
-    padding: $base-padding;
+.card {
+    display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    justify-content: space-between;
     border: $base-border-thickness solid $secondary;
     box-shadow: $base-box-shadow;
-    border-radius: math.div($base-border-radius, 4);
+    border-radius: math.div($base-border-radius, 1);
     background-color: white;
-
-    margin: $base-margin;
-    text-align: center;
+    margin-right: $base-margin * 10;
+    margin-left:  $base-margin * 10;
+    margin-bottom: $base-margin * 2;
     transition: transform 0.3s ease-in-out;
 
-    .card-title{
-        font-size: $font-size-lg;
-        padding-bottom: $base-padding;
+    .card-content {
+        padding: $base-padding;
+        flex: 1;
+    }
+
+    .card-title {
+        font-size: $font-size-xl;
         font-weight: bold;
-        margin-top: 0rem;
+        margin-top: 0;
+        margin-left: 1rem;
         color: $primary;
     }
 
     .card-body {
         font-size: $base-font-size;
-
         a {
             text-decoration: underline;
         }
     }
+
+    img.poster-image {
+        // width: 15%;
+        height: auto;
+        border-radius: $base-border-radius;
+    }
 }
 
-.card.hover{
-    transform: scale(1.10);
+.card:hover {
+    transform: scale(1.05);
 }
