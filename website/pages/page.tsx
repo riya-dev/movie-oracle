@@ -28,7 +28,7 @@ function page({ movieResults }) {
 			{movieResults.map((movieResult, index) => (
 				<div className="card" key={index}>
 				<div className="card-text">
-					<h1 className="card-title">{movieResult.original_title}</h1>
+					<h1 className="card-title">{movieResult.title}</h1>
 					<p className="card-overview">{movieResult.overview}</p>
 					<p className="card-info">
 						<strong> Language: {movieResult.original_language}</strong> ● 
@@ -38,14 +38,14 @@ function page({ movieResults }) {
 						{/* <strong>Genres:</strong> {movieResult.genre_ids.join(', ')}<br /> */}
 					</p>
 				
-				{/* <p className="card-info">
-					<strong>Sound interesting?</strong>
-				</p>
-				<button type="button" className="shiny-result-button">
-					See more
-				</button> */}
-
+					<p className="card-info">
+						<strong>Sound interesting?</strong>
+					</p>
+					<button type="button" className="shiny-result-button">
+						See more
+					</button>
 				</div>
+				
 				{movieResult.poster_path && (
 				<img
 					src={`https://image.tmdb.org/t/p/w500${movieResult.poster_path}`}
