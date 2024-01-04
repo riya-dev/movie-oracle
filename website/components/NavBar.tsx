@@ -167,7 +167,8 @@ const NavBar = ({ onMoviesFetched }) => {
           </div>
 
           <div className="form-item">
-            <button type="submit" className={`shiny-search-button ${isTransformed ? 'transformed' : ''}`}>
+            <button type="submit"
+              className={`shiny-search-button ${isTransformed ? 'transformed' : ''}`}>
               Search
             </button>
           </div>

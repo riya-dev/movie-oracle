@@ -113,6 +113,22 @@
             animation: shine 300ms linear;
         }
     }
+
+    &:active {
+        animation: buttonPressed 0.2s ease;
+    }
+}
+
+@keyframes buttonPressed {
+    0% {
+        transform: scale(1.15);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1.15);
+    }
 }
 
 @keyframes pulse {

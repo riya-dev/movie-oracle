@@ -76,7 +76,7 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
             return None
 
         for movie in movies:
-            print(f"Title: {movie.get('title')}, Release Date: {movie.get('release_date')}, Vote Average: {movie.get('vote_average')}, Language: {movie.get('original_language')}")
+            print(f"Title: {movie.get('title')}, Release Date: {movie.get('release_date')}, Vote Average: {movie.get('vote_average')}, Language: {movie.get('original_language')}, Adult: {movie.get('adult')}")
             # title, release_date, vote_average, original_language, overview, genre_ids
 
         return movies
@@ -108,6 +108,8 @@ def return_home():
         vote_average_gte = data.get('vote_average_gte', 7.0)
         # runtime_gte = 30
         runtime_lte = data.get('runtime_lte', 180)
+        
+        # print('include_adult test:', include_adult)
 
         genre_strings = data.get('genre_strings', [])
         genre_ids = get_genre_ids(api_key, genre_strings)
