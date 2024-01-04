@@ -496,4 +496,26 @@ html {
 
 .index {
   flex-direction: column;
+}
+
+.intro-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.intro-text {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+.intro-text.fade-in {
+  opacity: 1;
+}
+.intro-text.fade-out {
+  opacity: 0;
 }/*# sourceMappingURL=index.css.map */

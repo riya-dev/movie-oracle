@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
-import Index from './page';
+import Page from './page';
 import Footer from '@/components/Footer';
+import IntroPage from '@/components/IntroPage';
 
 function index() {
   const [movies, setMovies] = useState([]);
@@ -13,8 +14,9 @@ function index() {
   return (
     <>
       <div className="index">
+        {/* <IntroPage /> */}
         <NavBar onMoviesFetched={handleMoviesFetched} />
-        <Index movieResults={movies} />
+        <Page movieResults={movies} />
         <Footer />
       </div>
     </>

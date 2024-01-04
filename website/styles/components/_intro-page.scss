@@ -1,0 +1,24 @@
+.intro-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: $font-size-xl;
+  }
+  
+  .intro-text {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  
+    &.fade-in {
+      opacity: 1;
+    }
+  
+    &.fade-out {
+      opacity: 0;
+    }
+  }
+  
