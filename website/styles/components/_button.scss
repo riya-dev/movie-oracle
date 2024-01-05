@@ -140,15 +140,16 @@
     @include shine;
     font-size: 1rem;
     animation: pulse 1.5s infinite;
-    background: lighten($tertiary, 15%);
-    color: $primary;
+    // background: lighten($tertiary, 15%);
+    color: $tertiary;
+    background: $secondary;
     padding: 0.25rem;
     margin-top: 0rem;
     margin-left: 1rem;
     margin: auto;
 
     &:hover {
-        color: $primary;
-        box-shadow: 0 0 2px $secondary;
+        // color: $primary;
+        box-shadow: 0 0 5px $secondary;
     }
 }

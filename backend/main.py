@@ -52,18 +52,22 @@ def discover_movies(api_key, include_adult, primary_release_date_gte, primary_re
     # https://developer.themoviedb.org/reference/discover-movie
     url = "https://api.themoviedb.org/3/discover/movie"
     
+    # url = "https://api.themoviedb.org/3/discover/movie?include_adult=false&primary_release_date.gte=1976-01-01&primary_release_date.lte=2024-12-31&sort_by=popularity.desc&vote_average.gte=3&with_genres=comedy%2C%20horror&with_runtime.lte=180"
+
+    
     params = {
         "api_key": api_key,
         "include_adult": include_adult,
-        # "language": "en",
         "primary_release_date.gte": primary_release_date_gte,
         "primary_release_date.lte": primary_release_date_lte,
         "vote_average.gte": vote_average_gte,
-        # "with_runtime.gte": runtime_gte,
         "with_runtime.lte": runtime_lte,
         "with_genres": genres,
         # "with_keywords": keywords,
     }
+    
+    print(include_adult, primary_release_date_gte, primary_release_date_lte, vote_average_gte, 
+        runtime_lte, genres)
         
     response = requests.get(url, params=params)
     
@@ -106,11 +110,8 @@ def return_home():
         primary_release_date_gte = str(data.get('primary_release_date_gte', '2023')) + "-01-01"
         primary_release_date_lte = str(data.get('primary_release_date_lte', '2023')) + "-12-31"
         vote_average_gte = data.get('vote_average_gte', 7.0)
-        # runtime_gte = 30
         runtime_lte = data.get('runtime_lte', 180)
         
-        # print('include_adult test:', include_adult)
-
         genre_strings = data.get('genre_strings', [])
         genre_ids = get_genre_ids(api_key, genre_strings)
         genres = "|".join(genre_ids)

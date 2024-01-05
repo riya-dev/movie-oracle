@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
-  background-color: #e6f3ff;
-  color: #003566;
+  background-color: #800000;
+  color: black;
   font-family: Montserrat;
   display: flex;
   justify-content: center;
@@ -30,7 +30,7 @@ h2 {
 }
 
 a {
-  color: #0066cc;
+  color: #800000;
   text-decoration: none;
 }
 
@@ -41,13 +41,14 @@ html {
 .card-container {
   display: flex;
   flex-direction: column;
+  background: linear-gradient(#760000, black);
 }
 
 .card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #0066cc;
+  border: 2px solid #800000;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   background-color: white;
@@ -65,7 +66,7 @@ html {
 .card .card-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #003566;
+  color: black;
 }
 .card .card-overview {
   font-size: 1rem;
@@ -89,7 +90,7 @@ html {
   border: 0;
   padding: 0.75rem;
   border-radius: 5px;
-  background-color: #99ccff;
+  background-color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 1.15rem;
   font-weight: bold;
@@ -97,7 +98,7 @@ html {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 .btn:hover {
-  background-color: #b3d9ff;
+  background-color: white;
   transform: scale(1.1);
 }
 .btn .btn-outlined {
@@ -113,10 +114,10 @@ html {
   font-weight: bold;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
-  border: 2px solid #99ccff;
+  border: 2px solid white;
 }
 .btn .btn-outlined:hover {
-  background-color: #99ccff;
+  background-color: white;
   transform: scale(1.1);
 }
 
@@ -130,8 +131,8 @@ html {
 }
 .shiny-button {
   margin: 1rem;
-  background: #99ccff;
-  color: #003566;
+  background: white;
+  color: black;
   font-family: "Montserrat", sans-serif;
   border: 0;
   padding: 0.75rem 1.25rem;
@@ -172,8 +173,8 @@ html {
 
 .shiny-search-button {
   margin: 1rem;
-  background: #99ccff;
-  color: #003566;
+  background: white;
+  color: black;
   font-family: "Montserrat", sans-serif;
   border: 0;
   padding: 0.75rem 1.25rem;
@@ -245,8 +246,8 @@ html {
 }
 .shiny-result-button {
   margin: 1rem;
-  background: #99ccff;
-  color: #003566;
+  background: white;
+  color: black;
   font-family: "Montserrat", sans-serif;
   border: 0;
   padding: 0.75rem 1.25rem;
@@ -260,8 +261,8 @@ html {
   transition: all 100ms linear;
   font-size: 1rem;
   animation: pulse 1.5s infinite;
-  background: #e6f2ff;
-  color: #003566;
+  color: white;
+  background: #800000;
   padding: 0.25rem;
   margin-top: 0rem;
   margin-left: 1rem;
@@ -287,8 +288,7 @@ html {
   transform: translateX(250px) rotate(-25deg);
 }
 .shiny-result-button:hover {
-  color: #003566;
-  box-shadow: 0 0 2px #0066cc;
+  box-shadow: 0 0 5px #800000;
 }
 
 .navbar {
@@ -298,7 +298,7 @@ html {
   width: 100vw;
   margin: 0;
   display: flex;
-  background: linear-gradient(to bottom right, #003566, #0066cc);
+  background: linear-gradient(to bottom, black, #800000 90%, #800000);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 1;
   transition: height 1s ease;
@@ -396,7 +396,7 @@ html {
   border-radius: 20px;
   box-sizing: border-box;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
-  background-color: #99ccff;
+  background-color: white;
   cursor: pointer;
 }
 .slider input[type=range]::-webkit-slider-thumb {
@@ -411,21 +411,21 @@ html {
 .slider input[type=range]::-webkit-slider-thumb:focus {
   outline: none;
   transform: scale(1.1);
-  background-color: #b3d9ff;
+  background-color: white;
 }
 .slider input[type=range]::-webkit-slider-thumb:focus label {
   color: black;
 }
 .slider input[type=range]::-webkit-slider-thumb:hover {
-  background-color: #0066cc;
+  background-color: #800000;
 }
 .slider input[type=range]:focus {
   outline: none;
-  background-color: #b3d9ff;
+  background-color: white;
 }
 .slider input[type=range]:hover {
   opacity: 1;
-  background-color: #b3d9ff;
+  background-color: white;
   transform: scale(1.1) rotate(-2.5deg);
   box-shadow: 0 0 5px white;
 }
@@ -465,7 +465,7 @@ html {
 }
 
 .h2-alt {
-  color: #003566;
+  color: white;
   margin-top: 8rem;
   margin-bottom: 1rem;
   font-size: 2.25rem;
@@ -489,13 +489,14 @@ html {
   width: 100%;
   margin: 0;
   text-align: center;
-  background-color: #003566;
+  background-color: black;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
 .index {
   flex-direction: column;
+  padding: 0;
 }
 
 .intro-page {
