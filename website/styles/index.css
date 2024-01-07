@@ -166,6 +166,10 @@ html {
 }
 .shiny-button:hover {
   box-shadow: 0 0 5px white;
+  color: black;
+}
+.shiny-button:hover::after {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #800000 25%, #800000 50%, #800000 75%, rgba(255, 255, 255, 0) 100%);
 }
 .shiny-button.transformed {
   width: 125px;
@@ -215,11 +219,13 @@ html {
 .shiny-search-button:hover {
   transform: scale(1.15) rotate(-2.5deg);
   box-shadow: 0 0 10px white;
+  color: black;
 }
 .shiny-search-button:hover::after {
   width: 200%;
   opacity: 0.7;
   animation: shine 300ms linear;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #800000 25%, #800000 50%, #800000 75%, rgba(255, 255, 255, 0) 100%);
 }
 .shiny-search-button:active {
   animation: buttonPressed 0.2s ease;
