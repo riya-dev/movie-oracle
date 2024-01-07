@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 
 function page({ movieResults }  : { movieResults : any }) {
   // const[message, setMessage] = useState("Loading");
-  // const [movieResults, setMovieResults] = useState([]);
+//   const [movieResults, setMovieResults] = useState([]);
 
-  // useEffect(() => {
+//   useEffect(() => {
   //   // fetch API
   //   fetch("http://localhost:8080/api/home")
   //   .then((response) => response.json())
@@ -18,7 +18,10 @@ function page({ movieResults }  : { movieResults : any }) {
   //     // console.log(people);
   //     setMovieResults(data);
   //   });
-  // }, [])
+//   }, [])
+	if (!movieResults) {
+		return <div>Loading...</div>;
+	}
 
   return (
     <div>

@@ -16,7 +16,7 @@ const IntroPage = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [texts.length]);
 
   return (
     <div className="intro-page">
