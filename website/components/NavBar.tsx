@@ -1,41 +1,41 @@
 import { useState, useEffect } from 'react';
 
-const NavBar = ({ onMoviesFetched }) => {
-  const [navbarHeight, setNavbarHeight] = useState('100vh');
-  const [showAdultContent, setShowAdultContent] = useState(false);
-  const [genreSearch, setGenreSearch] = useState('');
-  const [ratingSliderValue, setRatingSliderValue] = useState(7);
-  const [runtimeSliderValue, setRuntimeSliderValue] = useState(180);
-  const [releaseMin, setReleaseMin] = useState('');
-  const [releaseMax, setReleaseMax] = useState('');
+const NavBar = ({ onMoviesFetched } : {onMoviesFetched:any}) => {
+  const [showAdultContent, setShowAdultContent] = useState<boolean>(false);
+  const [genreSearch, setGenreSearch] = useState<string>('');
+  const [ratingSliderValue, setRatingSliderValue] = useState<number>(7);
+  const [runtimeSliderValue, setRuntimeSliderValue] = useState<number>(180);
+  const [releaseMin, setReleaseMin] = useState<string>('');
+  const [releaseMax, setReleaseMax] = useState<string>('');
 
-  const [isTransformed, setIsTransformed] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState('100vh');
+  const [isTransformed, setIsTransformed] = useState<boolean>(false);
 
   const handleToggleAdultContent = () => {
     setShowAdultContent(!showAdultContent);
   };
 
-  const handleGenreSearchChange = (e) => {
+  const handleGenreSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGenreSearch(e.target.value);
   };
 
-  const handleRatingSliderChange = (e) => {
-    setRatingSliderValue(e.target.value);
+  const handleRatingSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRatingSliderValue(Number(e.target.value));
   };
 
-  const handleRuntimeSliderChange = (e) => {
-    setRuntimeSliderValue(e.target.value);
+  const handleRuntimeSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRuntimeSliderValue(Number(e.target.value));
   };
 
-  const handleReleaseMinSearchChange = (e) => {
+  const handleReleaseMinSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReleaseMin(e.target.value);
   };
 
-  const handleReleaseMaxSearchChange = (e) => {
+  const handleReleaseMaxSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReleaseMax(e.target.value);
   };
 
-  const handleSearch = async (e) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setNavbarHeight('15vh');
     setIsTransformed(true);

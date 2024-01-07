@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import { Montserrat } from 'next/font/google'
 // const montserrat = Montserrat({ subsets: ['latin'] })
 
-function page({ movieResults }) {
+function page({ movieResults }  : { movieResults : any }) {
   // const[message, setMessage] = useState("Loading");
   // const [movieResults, setMovieResults] = useState([]);
 
@@ -25,7 +25,7 @@ function page({ movieResults }) {
     	<div className="card-container">
 			{/* {movieResults.length > 0 ? ( */}
 			<h2 className="h2-alt">Movies for you</h2>
-			{movieResults.map((movieResult, index) => (
+			{movieResults.map((movieResult : any, index : number) => (
 				<div className="card" key={index}>
 				<div className="card-text">
 					<h1 className="card-title">{movieResult.title}</h1>

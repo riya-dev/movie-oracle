@@ -4,10 +4,10 @@ import Page from './page';
 import Footer from '@/components/Footer';
 import IntroPage from '@/components/IntroPage';
 
-function index() {
+function Index() {
   const [movies, setMovies] = useState([]);
 
-  const handleMoviesFetched = (fetchedMovies) => {
+  const handleMoviesFetched = (fetchedMovies:any) => {
     setMovies(fetchedMovies);
   };
 
@@ -23,4 +23,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
